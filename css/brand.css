@@ -1,0 +1,159 @@
+.brand-container {
+    min-height: 100vh;
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .brand-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: auto;
+    /* height: 49vh; */
+  }
+  .second-brand{
+    border-top: 1px solid #1d1d1d;
+  }
+
+  .brands-header{
+    padding: 30px;
+  }
+  
+  
+  .brand-content .brand-image{
+    max-width: 50%;
+    /* height: 100%; */
+    position: relative;
+    display: block;
+  }
+  .brand-content .brand-image img{
+    min-width: 50vw;
+    height: 49.7vh;
+    object-fit: cover;
+  }
+  
+  .brand-content .brand-textbox {
+    min-width: 50vw;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 50%;
+    justify-content: center; 
+  }
+  .brand-textbox p{
+    font-size: 20px;
+  }
+  
+  
+  .brand-textbox a{
+    /* padding: 12px 20px;
+    background: #070707;
+    color: #fff; */
+    /* font-weight: bold; */
+    color: #2d2dee;
+    font-size: 20px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: -10px;
+    /* width: fit-content; */
+  }
+  
+  /* .brand-textbox a:hover{
+    background: #141414;
+  }
+   */
+  
+  
+  .brands-title {
+    font-size: 34px;
+  }
+  
+  
+  
+  .brand-textbox h3 {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  
+  
+  @media (max-width: 1270px) {
+    /* .brand-container{
+      margin-bottom: -100px;
+      padding-bottom: -100px;
+    } */
+
+  }
+  @media (max-width: 1190px) {
+    .brand-content .brand-image img{
+        width: 100%;
+      }
+  }
+  
+  @media (max-width: 970px) {
+    .brand-container{
+      padding: 15px;
+      height: auto;
+      min-height: auto;
+    }
+    .brand-content {
+      flex-direction: column;
+      border-top: none;
+    }
+    .brand-content .brand-image{
+      max-width: 100%;
+    }
+    .brands-header{
+      padding: 0;
+      padding-bottom: 20px;
+    }
+  
+    .brand-content .brand-image img{
+      width: 100%;
+      height: auto;
+    }
+    .second-brand{
+      border-top: none;
+    }
+    
+    .brand-content .brand-textbox {
+      width: 100%;
+      display: flex;
+      min-height: auto;
+      padding: 0;
+      margin-top: 30px;
+    }
+  
+    .brand-textbox p{
+      text-align: justify;
+    }
+    .brand-textbox a{
+     margin-bottom: 50px;
+    } 
+  }
+
+
+  @media (max-width: 768px) {
+    .brand-textbox h3 {
+      font-size: 27px;
+    }
+    .brand-textbox p{
+      font-size: 17px;
+    }
+    .brands-title {
+      font-size: 27px;
+    }
+
+    .brand-textbox a{
+      font-size: 20px;
+      margin-top: 0;
+    }
+    
+  }
+  

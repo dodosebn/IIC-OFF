@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEAISCAPITAL - Africa Survey</title>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #181919;
+            --primary-light: #6366f1;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .intro-text {
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+        
+        .survey-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .question-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .radio-option, .text-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .radio-option input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--gray);
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .radio-option input[type="radio"]:checked {
+            border-color: var(--primary);
+        }
+        
+        .radio-option input[type="radio"]:checked::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .radio-option label {
+            cursor: pointer;
+        }
+        
+        .text-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            transition: border 0.3s;
+        }
+        
+        .text-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: center;
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background: var(--primary-light);
+        }
+        
+        .likert-scale {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .likert-option {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .thank-you {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+        
+        .thank-you h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .likert-scale {
+                flex-direction: column;
+            }
+            
+            .likert-option {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">IDEAISCAPITAL</div>
+            <h1>Africa Knowledge Survey</h1>
+        </header>
+        
+        <form id="surveyForm" class="survey-form">
+            <div class="question-card">
+                <h3 class="question-title">1. Do you love Africa?</h3>
+                <div class="options-container">
+                    <div class="radio-option">
+                        <input type="radio" id="love-yes" name="loveAfrica" value="Yes" required>
+                        <label for="love-yes">Yes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="love-no" name="loveAfrica" value="No">
+                        <label for="love-no">No</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="love-other" name="loveAfrica" value="Other">
+                        <label for="love-other">Other (please specify)</label>
+                    </div>
+                    <input type="text" id="love-other-text" name="loveAfricaOther" class="text-input" placeholder="Please specify..." style="display: none;">
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <h3 class="question-title">2. Have you been to Africa?</h3>
+                <div class="options-container">
+                    <div class="radio-option">
+                        <input type="radio" id="been-yes" name="beenToAfrica" value="Yes" required>
+                        <label for="been-yes">Yes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="been-no" name="beenToAfrica" value="No">
+                        <label for="been-no">No</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <h3 class="question-title">3. Is Africa the second-largest continent in the world?</h3>
+                <div class="options-container likert-scale">
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="size-strongly-agree" name="continentSize" value="Strongly agree" required>
+                        <label for="size-strongly-agree">Strongly agree</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="size-agree" name="continentSize" value="Agree">
+                        <label for="size-agree">Agree</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="size-neutral" name="continentSize" value="Neither agree nor disagree">
+                        <label for="size-neutral">Neither agree nor disagree</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="size-disagree" name="continentSize" value="Disagree">
+                        <label for="size-disagree">Disagree</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="size-strongly-disagree" name="continentSize" value="Strongly disagree">
+                        <label for="size-strongly-disagree">Strongly disagree</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <h3 class="question-title">4. Is Nigeria the most populous country in Africa?</h3>
+                <div class="options-container likert-scale">
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="nigeria-definitely" name="nigeriaPopulation" value="Definitely would" required>
+                        <label for="nigeria-definitely">Definitely would</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="nigeria-probably" name="nigeriaPopulation" value="Probably would">
+                        <label for="nigeria-probably">Probably would</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="nigeria-probably-not" name="nigeriaPopulation" value="Probably would not">
+                        <label for="nigeria-probably-not">Probably would not</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="nigeria-definitely-not" name="nigeriaPopulation" value="Definitely would not">
+                        <label for="nigeria-definitely-not">Definitely would not</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <h3 class="question-title">5. Is the Sahara Desert located in southern Africa?</h3>
+                <div class="options-container">
+                    <div class="radio-option">
+                        <input type="radio" id="sahara-yes" name="saharaLocation" value="Yes" required>
+                        <label for="sahara-yes">Yes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="sahara-no" name="saharaLocation" value="No">
+                        <label for="sahara-no">No</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <h3 class="question-title">6. Is Mount Kilimanjaro the highest peak in Africa?</h3>
+                <div class="options-container likert-scale">
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="kilimanjaro-very-likely" name="kilimanjaroPeak" value="Very likely" required>
+                        <label for="kilimanjaro-very-likely">Very likely</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="kilimanjaro-likely" name="kilimanjaroPeak" value="Likely">
+                        <label for="kilimanjaro-likely">Likely</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="kilimanjaro-neutral" name="kilimanjaroPeak" value="Neither likely nor unlikely">
+                        <label for="kilimanjaro-neutral">Neither likely nor unlikely</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="kilimanjaro-unlikely" name="kilimanjaroPeak" value="Unlikely">
+                        <label for="kilimanjaro-unlikely">Unlikely</label>
+                    </div>
+                    <div class="radio-option likert-option">
+                        <input type="radio" id="kilimanjaro-very-unlikely" name="kilimanjaroPeak" value="Very unlikely">
+                        <label for="kilimanjaro-very-unlikely">Very unlikely</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Survey</button>
+        </form>
+        
+        <div class="thank-you" id="thankYou">
+            <h2>Thank You!</h2>
+            <p>Your responses have been recorded.</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize EmailJS with your User ID
+        emailjs.init({
+        publicKey: "jyzzOytMmss1f4PmT",
+      })
+        
+        // Show/hide "Other" text input based on radio selection
+        document.querySelectorAll('input[name="loveAfrica"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const otherText = document.getElementById('love-other-text');
+                otherText.style.display = this.value === 'Other' ? 'block' : 'none';
+                if (this.value !== 'Other') {
+                    otherText.value = '';
+                }
+            });
+        });
+        
+        // Form submission handler
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                loveAfrica: document.querySelector('input[name="loveAfrica"]:checked').value,
+                loveAfricaOther: document.querySelector('input[name="loveAfrica"]:checked').value === 'Other' 
+                    ? document.getElementById('love-other-text').value 
+                    : '',
+                beenToAfrica: document.querySelector('input[name="beenToAfrica"]:checked').value,
+                continentSize: document.querySelector('input[name="continentSize"]:checked').value,
+                nigeriaPopulation: document.querySelector('input[name="nigeriaPopulation"]:checked').value,
+                saharaLocation: document.querySelector('input[name="saharaLocation"]:checked').value,
+                kilimanjaroPeak: document.querySelector('input[name="kilimanjaroPeak"]:checked').value,
+                timestamp: new Date().toLocaleString(),
+                responseId: Math.random().toString(36).substring(2, 9)
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_33e9myk', 'template_l4rmg4l', formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Hide form and show thank you message
+                    document.getElementById('surveyForm').style.display = 'none';
+                    document.getElementById('thankYou').style.display = 'block';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('There was an error submitting your survey. Please try again.');
+                });
+        });
+    </script>
+</body>
+</html>
