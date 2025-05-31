@@ -370,7 +370,7 @@
                 timestamp: new Date().toLocaleString(),
                 responseId: Math.random().toString(36).substring(2, 9)
             };
-            
+
             // Send email using EmailJS
             emailjs.send('service_33e9myk', 'template_l4rmg4l', formData)
                 .then(function(response) {

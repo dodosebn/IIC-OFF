@@ -128,7 +128,8 @@
         </div>
         <!-- // end .content-section -->
         <div
-          class="sidebar sidebar-dark d-flex flex-column justify-content-end"
+          class="sidebar sidebar-dark d-flex flex-column 
+          justify-content-end"
           data-aos="slide-left"
           data-aos-delay="3000"
         >
@@ -195,173 +196,114 @@
         </p>
       </div>
     </div>
+  
 
     <!-- Contact Modal -->
-    <div
-      class="modal fade modal-center modal-dark"
-      id="contactModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="contactModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true"><i class="pe-7s-close pe-2x"></i></span>
-            </button>
-            <h2 class="modal-title" id="contactModalLabel">Connect</h2>
-            <p class="lead form-paragraph text-center p-2">
-              Have a question? Want to know more about our super awesome
-              project? Just send us a message.
-            </p>
-            <div class="scrollable-container">
-              <form class="pr-4 pl-4" id="contactForm">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group md-form">
-                      <input
-                        type="text"
-                        name="fullname"
-                        class="form-control input-material"
-                        autocomplete="off"
-                        required
-                      />
-                      <span class="highlight"></span>
-                      <span class="bar"></span>
-                      <label>Full Name</label>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group md-form">
-                      <input
-                        type="email"
-                        name="email"
-                        class="form-control input-material"
-                        autocomplete="off"
-                        required
-                      />
-                      <span class="highlight"></span>
-                      <span class="bar"></span>
-                      <label>Email Address</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group md-form">
-                      <input
-                        type="text"
-                        name="mobile"
-                        class="form-control input-material"
-                        autocomplete="off"
-                        required
-                      />
-                      <span class="highlight"></span>
-                      <span class="bar"></span>
-                      <label>Mobile</label>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group md-form">
-                      <input
-                        type="text"
-                        name="whatsapp"
-                        class="form-control input-material"
-                        autocomplete="off"
-                        required
-                      />
-                      <span class="highlight"></span>
-                      <span class="bar"></span>
-                      <label>WhatsApp Number</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group md-form">
-                      <input
-                        type="text"
-                        name="city"
-                        class="form-control input-material"
-                        autocomplete="off"
-                        required
-                      />
-                      <span class="highlight"></span>
-                      <span class="bar"></span>
-                      <label>City</label>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group md-form">
-                      <input
-                        type="number"
-                        name="age"
-                        class="form-control input-material"
-                        autocomplete="off"
-                        required
-                      />
-                      <span class="highlight"></span>
-                      <span class="bar"></span>
-                      <label>Age</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group md-form option">
-                  <select
-                    name="field"
-                    class="form-control input-material styled-select"
-                    required
-                  >
-                    <option value="" disabled selected class="label-option">
-                      Select Field
-                    </option>
-                    <option value="Writing">Writing</option>
-                    <option value="Acting">Acting</option>
-                  </select>
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
-                </div>
-                <!-- --- -->
-
-                <div class="form-group md-form">
-                  <textarea
-                    name="message"
-                    class="form-control input-material"
-                    rows="2"
-                    required
-                  ></textarea>
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
-                  <label>Your Message</label>
-                </div>
-                <div class="form-group text-center">
-                  <button type="submit" class="submit-btn" id="js-contact-btn">
-                    Send Message
-                  </button>
-                  <div
-                    id="js-contact-result"
-                    data-success-msg="Success, Please check your email."
-                    data-error-msg="Oops! Something went wrong"
-                  ></div>
-                </div>
-              </form>
-            </div>
+    
           </div>
         </div>
       </div>
     </div>
-
+<!-- 
     <button id="scroll-to-top">
       <i class="fas fa-arrow-up"></i>
-    </button>
+    </button> -->
+     <style>
+      .journey-button-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 5rem;
+      }
+      
+      .journey-button {
+        padding: 0.5rem 1rem;
+        background: transparent;
+        border: 1px solid #000;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .journey-button:hover {
+        background: #000;
+        color: #fff;
+      }
+    </style>
+  
+      <div class="journey-button-container">
+      <button id="journey-button" class="journey-button">Journey</button>
+    </div>
+<div id="my-journey" class="journey-section">
+      <div class="journey-paragraph">
+        <div class="journey-header">
+          <h2 class="values-title">JOURNEY</h2>
+        </div>
+        <p><b>Are you ready?</b></p>
+        <p>
+          Are you ready to build? Are you ready for solutions? Are you ready to
+          change your behavior? Are you ready to be honorable? Are you ready to
+          let go of your ego? Are you ready to create a community? Are you ready
+          to stop blaming others for your difficulties? Are you ready to stop
+          expecting solutions from the outside? Are you ready to sacrifice for a
+          better future? Let’s get to it; we have no time to waste. We’ve been
+          thinking about what’s next for us, our continent, our role in the
+          world, and how the world perceives Africa. We’ve been thinking about
+          solutions and the obstacles that hold us back. We’ve been thinking
+          about the changes that need to happen to build a better society for
+          future generations. Yes, we’ve been thinking a lot. It is said that
+          the future belongs to those who prepare for it today. Are you ready?
+        </p>
+        <p><b>New Mindset.</b></p>
+        <p>
+          Think big, think ahead, think globally. Great achievements stem from
+          great ideas. Africa requires bold, innovative concepts and a
+          generation willing to take risks to bring them to life. Learning from
+          past mistakes and adopting a systematic approach is essential. Only
+          through this method can we attain remarkable outcomes. We need
+          collaboration to create a better future. At Idea Is Capital, we are
+          passionate about doing things correctly. Our values and vision focus
+          on solutions. We are committed to rewriting the African narrative and
+          rebuilding it together. We can develop a future that embodies dignity.
+        </p>
+      </div>
+    </div>
+    <style>
+        /* Style for the scroll-to-top button */
+        #scroll-to-top1 {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 99;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
 
+        #scroll-to-top1.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #scroll-to-top1:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+        }
+    </style>
+     <button id="scroll-to-top1">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <!-- ===END OF CONTACT FORM MODAL===== -->
 
     <!-- JS Files -->
@@ -448,6 +390,29 @@
       });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollToTopBtn = document.getElementById('scroll-to-top1');
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            
+            // Scroll to top when clicked
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
     <!-- HEADER SCRIPT................. -->
 
     <script>
@@ -503,43 +468,7 @@
     </script>
 
     <script>
-      //     document.addEventListener("DOMContentLoaded", function () {
-      //     const toggleButton = document.getElementById("toggleButton");
-      //     const toggleSM = document.getElementById("toggleSM");
-      //     const socialIcons = document.getElementById("socialIcons");
-
-      //     toggleButton.addEventListener("click", function (event) {
-      //         event.preventDefault();
-      //         const isOpen = socialIcons.style.display === "flex";
-
-      //         if (isOpen) {
-      //             socialIcons.style.display = "none";
-      //             toggleSM.textContent = "SM"; // Change back to SM
-      //         } else {
-      //             socialIcons.style.display = "flex";
-      //             toggleSM.textContent = "X"; // Change to X
-      //         }
-      //     });
-      // });
-
-      // document.addEventListener("DOMContentLoaded", function () {
-      //     const toggleButton = document.getElementById("toggleButton");
-      //     const toggleSM = document.getElementById("toggleSM");
-      //     const socialIcons = document.getElementById("socialIcons");
-
-      //     toggleButton.addEventListener("click", function (event) {
-      //         event.preventDefault();
-      //         const isOpen = socialIcons.style.display === "flex";
-
-      //         if (isOpen) {
-      //             socialIcons.style.display = "none";
-      //             toggleSM.textContent = "SM"; // Change back to SM
-      //         } else {
-      //             socialIcons.style.display = "flex";
-      //             toggleSM.textContent = "X"; // Change to X
-      //         }
-      //     });
-      // });
+      
 
       document.addEventListener("DOMContentLoaded", function () {
         const toggleButton = document.getElementById("toggleButton");
@@ -558,6 +487,16 @@
           } else {
             toggleSM.textContent = "SM";
           }
+        });
+      });
+    </script>
+    
+      <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('journey-button').addEventListener('click', function() {
+          document.getElementById('my-journey').scrollIntoView({
+            behavior: 'smooth'
+          });
         });
       });
     </script>
