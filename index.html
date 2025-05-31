@@ -204,18 +204,19 @@
         </div>
       </div>
     </div>
-<!-- 
-    <button id="scroll-to-top">
-      <i class="fas fa-arrow-up"></i>
-    </button> -->
+
      <style>
       .journey-button-container {
         display: flex;
         align-items: center;
         gap: 1rem;
-        margin-left: 5rem;
+        margin-left: 9.5rem;
       }
-      
+      @media (max-width: 768px) {
+        .journey-button-container {
+        margin-left: 2rem;
+        }
+      }
       .journey-button {
         padding: 0.5rem 1rem;
         background: transparent;
