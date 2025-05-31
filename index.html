@@ -3,19 +3,14 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Idea Is Capital</title>
     <!-- Meta Share -->
     <meta property="og:title" content="Idea Is Capital" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/bg-one.jpg" />
     <!-- CSS Files -->
-    <!-- build:css css/app.min.css -->
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Web Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300"
       rel="stylesheet"
@@ -24,19 +19,137 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <!-- Plugins -->
     <link rel="stylesheet" href="css/icon-font.css" />
     <link rel="stylesheet" href="css/aos.css" />
     <link rel="stylesheet" href="css/slick.css" />
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/our-journey.css" />
     <link rel="stylesheet" href="css/brand.css" />
     <link rel="stylesheet" href="css/hero-mobile-icons.css" />
-    <!-- /build -->
-  </head>
 
+    <style>
+      .journey-button-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 9.5rem;
+      }
+      @media (max-width: 768px) {
+        .journey-button-container {
+          margin-left: 2rem;
+        }
+      }
+      .journey-button {
+        padding: 0.5rem 1rem;
+        background: transparent;
+        border: 1px solid #000;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .journey-button:hover {
+        background: #000;
+        color: #fff;
+      }
+
+      /* Contact Form Modal Styling */
+      .contact-form-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1050;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .contact-form-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        position: relative;
+      }
+
+      .contact-form-container h3 {
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .contact-form-container input,
+      .contact-form-container select,
+      .contact-form-container textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .contact-form-container button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .close-form-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #888;
+      }
+
+      .close-form-btn:hover {
+        color: #000;
+      }
+      
+      /* Style for the scroll-to-top button */
+      #scroll-to-top1 {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 50px;
+          height: 50px;
+          background-color: #000;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          z-index: 99;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+          opacity: 0;
+          visibility: hidden;
+      }
+
+      #scroll-to-top1.show {
+          opacity: 1;
+          visibility: visible;
+      }
+
+      #scroll-to-top1:hover {
+          background-color: #333;
+          transform: translateY(-3px);
+      }
+    </style>
+  </head>
   <body>
     <!-- -------Hero section------ -->
     <div class="animation anim-dark" data-aos="slide-effect-2">
@@ -45,60 +158,23 @@
           class="background overlay"
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
+
         <div class="openAndClose" id="toggleButton">
           <a href="#" id="toggleSM">SM</a>
         </div>
-        <nav class="navSty" style="display: flex; gap: 2rem;">
-<div id="seeQ" >
-    <a href="question.html">Questionaire1 </a> </div>
-    <div><a href="quest.html">question 2</a></div>
-    </nav>
+
         <div class="mobile-header-icons">
           <div class="icons-container" id="socialIcons">
-            <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-facebook-f social-icon"></i
-            ></a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-x-twitter social-icon"></i
-            ></a>
-            <a
-              href="https://www.tiktok.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-tiktok social-icon"></i
-            ></a>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-instagram social-icon"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-linkedin-in social-icon"></i
-            ></a>
-            <a
-              href="javascript:void(0);"
-              data-toggle="modal"
-              data-target="#contactModal"
-              ><i class="fas fa-phone social-icon"></i
-            ></a>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f social-icon"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter social-icon"></i></a>
+            <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok social-icon"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in social-icon"></i></a>
+            <a href="javascript:void(0);" id="openForm"><i class="fas fa-phone social-icon"></i></a>
           </div>
         </div>
 
-        <!-- // end .background -->
-        <div
-          class="content-section d-flex justify-content-center align-items-center"
-        >
-          <!-- Vertical Animating Lines -->
+        <div class="content-section d-flex justify-content-center align-items-center">
           <div class="v-lines">
             <div class="vline-1"></div>
             <div class="vline-2"></div>
@@ -108,60 +184,32 @@
 
           <div class="container">
             <div class="center-content text-light align-self-center">
-              <h1
-                class="display-3 sans-serif-font font-bold"
-                data-aos="fade"
-                data-aos-delay="1800"
-              >
+              <h1 class="display-3 sans-serif-font font-bold" data-aos="fade" data-aos-delay="1800">
                 IDEA IS CAPITAL
               </h1>
-              <p
-                class="lead my-2 my-sm-4"
-                data-aos="fade"
-                data-aos-delay="2500"
-              >
+              <p class="lead my-2 my-sm-4" data-aos="fade" data-aos-delay="2500">
                 Innovative | Imaginative | Creative
               </p>
             </div>
           </div>
           <button class="values-button">Journey</button>
         </div>
-        <!-- // end .content-section -->
-        <div
-          class="sidebar sidebar-dark d-flex flex-column 
-          justify-content-end"
-          data-aos="slide-left"
-          data-aos-delay="3000"
-        >
+
+        <div class="sidebar sidebar-dark d-flex flex-column justify-content-end" data-aos="slide-left" data-aos-delay="3000">
           <div class="hamburger-menu mb-auto"></div>
-          <!-- // end .hamburger-menu -->
           <div class="social-links">
-            <a href="http://www.facebook.com/ideaiscapital" target="_blank">
-              Facebook
-            </a>
+            <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
             <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
-            <a href="http://instagram.com/ideaiscapital" target="_blank">
-              Instagram
-            </a>
-            <a href="http://linkedin.com/company/ideaiscapital/" target="_blank"
-              >Linkedin
-            </a>
-            <a href="https://www.tiktok.com/@ideaiscapital" target="_blank"
-              >Tiktok</a
-            >
-            <a
-              href="javascript:void(0);"
-              data-toggle="modal"
-              data-target="#contactModal"
-              >Connect</a
-            >
+            <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
+            <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
+            <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
+            <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ===Our Journey section==== -->
-
     <div id="our-journey" class="journey-section">
       <div class="journey-paragraph">
         <div class="journey-header">
@@ -174,12 +222,12 @@
           let go of your ego? Are you ready to create a community? Are you ready
           to stop blaming others for your difficulties? Are you ready to stop
           expecting solutions from the outside? Are you ready to sacrifice for a
-          better future? Let’s get to it; we have no time to waste. We’ve been
-          thinking about what’s next for us, our continent, our role in the
-          world, and how the world perceives Africa. We’ve been thinking about
-          solutions and the obstacles that hold us back. We’ve been thinking
+          better future? Let's get to it; we have no time to waste. We've been
+          thinking about what's next for us, our continent, our role in the
+          world, and how the world perceives Africa. We've been thinking about
+          solutions and the obstacles that hold us back. We've been thinking
           about the changes that need to happen to build a better society for
-          future generations. Yes, we’ve been thinking a lot. It is said that
+          future generations. Yes, we've been thinking a lot. It is said that
           the future belongs to those who prepare for it today. Are you ready?
         </p>
         <p><b>New Mindset.</b></p>
@@ -196,45 +244,12 @@
         </p>
       </div>
     </div>
-  
-
-    <!-- Contact Modal -->
     
-          </div>
-        </div>
-      </div>
-    </div>
-
-     <style>
-      .journey-button-container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-left: 9.5rem;
-      }
-      @media (max-width: 768px) {
-        .journey-button-container {
-        margin-left: 2rem;
-        }
-      }
-      .journey-button {
-        padding: 0.5rem 1rem;
-        background: transparent;
-        border: 1px solid #000;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .journey-button:hover {
-        background: #000;
-        color: #fff;
-      }
-    </style>
-  
-      <div class="journey-button-container">
+    <div class="journey-button-container">
       <button id="journey-button" class="journey-button">Journey</button>
     </div>
-<div id="my-journey" class="journey-section">
+    
+    <div id="my-journey" class="journey-section">
       <div class="journey-paragraph">
         <div class="journey-header">
           <h2 class="values-title">JOURNEY</h2>
@@ -246,12 +261,12 @@
           let go of your ego? Are you ready to create a community? Are you ready
           to stop blaming others for your difficulties? Are you ready to stop
           expecting solutions from the outside? Are you ready to sacrifice for a
-          better future? Let’s get to it; we have no time to waste. We’ve been
-          thinking about what’s next for us, our continent, our role in the
-          world, and how the world perceives Africa. We’ve been thinking about
-          solutions and the obstacles that hold us back. We’ve been thinking
+          better future? Let's get to it; we have no time to waste. We've been
+          thinking about what's next for us, our continent, our role in the
+          world, and how the world perceives Africa. We've been thinking about
+          solutions and the obstacles that hold us back. We've been thinking
           about the changes that need to happen to build a better society for
-          future generations. Yes, we’ve been thinking a lot. It is said that
+          future generations. Yes, we've been thinking a lot. It is said that
           the future belongs to those who prepare for it today. Are you ready?
         </p>
         <p><b>New Mindset.</b></p>
@@ -268,44 +283,33 @@
         </p>
       </div>
     </div>
-    <style>
-        /* Style for the scroll-to-top button */
-        #scroll-to-top1 {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            z-index: 99;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
 
-        #scroll-to-top1.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #scroll-to-top1:hover {
-            background-color: #333;
-            transform: translateY(-3px);
-        }
-    </style>
-     <button id="scroll-to-top1">
+    <!-- Modern Connect Form Modal -->
+    <div class="contact-form-modal" id="contactFormModal">
+      <div class="contact-form-container">
+        <span class="close-form-btn" id="closeForm">&times;</span>
+        <h3>Connect With Us</h3>
+        <form>
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <input type="text" placeholder="Mobile" required />
+          <input type="text" placeholder="WhatsApp Number" required />
+          <input type="text" placeholder="City" required />
+          <input type="number" placeholder="Age" required />
+          <select required>
+            <option value="">Select your interest</option>
+            <option value="writing">Writing</option>
+            <option value="acting">Acting</option>
+          </select>
+          <textarea placeholder="Your message..." rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+    
+    <button id="scroll-to-top1">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <!-- ===END OF CONTACT FORM MODAL===== -->
 
     <!-- JS Files -->
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
@@ -346,7 +350,6 @@
     </script>
 
     <!-- SCROLL TO THE TOP========== -->
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const scrollTopBtn = document.getElementById("scroll-to-top");
@@ -415,7 +418,6 @@
     </script>
 
     <!-- HEADER SCRIPT................. -->
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         let scrolled = false;
@@ -469,8 +471,6 @@
     </script>
 
     <script>
-      
-
       document.addEventListener("DOMContentLoaded", function () {
         const toggleButton = document.getElementById("toggleButton");
         const toggleSM = document.getElementById("toggleSM");
@@ -492,13 +492,39 @@
       });
     </script>
     
-      <script>
+    <script>
       document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('journey-button').addEventListener('click', function() {
           document.getElementById('my-journey').scrollIntoView({
             behavior: 'smooth'
           });
         });
+      });
+    </script>
+    
+    <!-- Contact Form Script -->
+    <script>
+      const openFormBtn = document.getElementById("openFormSidebar");
+      const openFormMobile = document.getElementById("openForm");
+      const formModal = document.getElementById("contactFormModal");
+      const closeFormBtn = document.getElementById("closeForm");
+
+      openFormBtn.addEventListener("click", () => {
+        formModal.style.display = "flex";
+      });
+      
+      openFormMobile.addEventListener("click", () => {
+        formModal.style.display = "flex";
+      });
+
+      closeFormBtn.addEventListener("click", () => {
+        formModal.style.display = "none";
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === formModal) {
+          formModal.style.display = "none";
+        }
       });
     </script>
   </body>
