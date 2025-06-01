@@ -22,6 +22,16 @@ html, body {
   background-repeat: no-repeat;
 }
 
+/* This will be added to body when the menu is active */
+.white-overlay {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Hide everything except the hamburger/cancel menu when active */
+.white-overlay .animation-inner > *:not(#menuToggle) {
+  display: none;
+}
 
 
 #scroll-to-top {
@@ -147,30 +157,7 @@ a:hover, a:focus, a:active {
 
 
 
-.form-control::-webkit-input-placeholder {
-  color: #000000;
-  opacity: 0.5;
-}
 
-.form-control::-moz-placeholder {
-  color: #0f0f0f;
-  opacity: 0.5;
-}
-
-.form-control:-ms-input-placeholder {
-  color: #000000;
-  opacity: 0.5;
-}
-
-.form-control::placeholder {
-  color: #000000;
-  opacity: 0.5;
-}
-
-.form-control::-webkit-input-placeholder {
-  color: #000000;
-  opacity: 0.5;
-}
 
 /*FONT*/
 .sans-serif-font {
@@ -862,49 +849,6 @@ label {
   transition: 0.2s ease all;
 }
 
-/* Styling the select box itself */
-.form-group.md-form.option .styled-select {
-  width: 100%;
-  font-size: 14px;
-  color: #999;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none; 
-  -moz-appearance: none; 
-  appearance: none;       
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Dropdown arrow styling */
-.form-group.md-form.option .styled-select::-ms-expand {
-  display: none; 
-}
-
-/* Styling for options */
-.form-group.md-form.option .styled-select option {
-  padding: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Styling the label option (placeholder) */
-.form-group.md-form.option .styled-select .label-option {
-  color: #999;
-}
-
-
-/* Hover effect on individual options */
-.form-group.md-form.option .styled-select option:hover {
-  background-color: #f1f1f1;
-}
-
-/* active state */
-.input-material:focus ~ label,
-.input-material ~ label.active {
-  top: -20px;
-  font-size: 14px;
-  color: #000000;
-}
 
 .light-theme .input-material:focus ~ label, .light-theme
 .input-material ~ label.active {
@@ -943,18 +887,6 @@ label {
   right: 50%;
 }
 
-/* active state */
-.input-material:focus ~ .bar:before,
-.input-material:focus ~ .bar:after {
-  width: 50%;
-}
-
-/* active state */
-.input-material:focus ~ .highlight {
-  -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
-  animation: inputHighlighter 0.3s ease;
-}
 
 /* ANIMATIONS  */
 @-webkit-keyframes inputHighlighter {

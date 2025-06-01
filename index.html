@@ -29,42 +29,54 @@
     <link rel="stylesheet" href="css/hero-mobile-icons.css" />
 
     <style>
-      .journey-button-container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-left: 9.5rem;
-      }
-      @media (max-width: 768px) {
-        .journey-button-container {
-          margin-left: 2rem;
-        }
-      }
-      .journey-button {
-        padding: 0.5rem 1rem;
-        background: transparent;
+       .journey-button {
+        padding: 0.2rem;
         border: 1px solid #000;
+        width: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
         cursor: pointer;
         transition: all 0.3s ease;
       }
-      .journey-button:hover {
+      .journey-button {
         background: #000;
         color: #fff;
       }
 
       /* Contact Form Modal Styling */
-      .contact-form-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1050;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7);
-        justify-content: center;
-        align-items: center;
-      }
+     .contact-form-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+.contact-form-container::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+.contact-form-container::-webkit-scrollbar-thumb {
+  background-color: #000; /* Darker gray thumb */
+  /* border: 2px solid #f1f1f1;  */
+}
+.contact-form-container {
+  background: #fff;
+  padding: 2rem;
+  /* border-radius: 12px; */
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh; /* 👈 limits height to viewport */
+  overflow-y: auto;  /* 👈 allows scroll if content overflows */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  box-sizing: border-box; /* 👈 ensures padding doesn't overflow */
+}
 
       .contact-form-container {
         background: #fff;
@@ -107,9 +119,9 @@
         position: absolute;
         top: 10px;
         right: 15px;
-        font-size: 1.2rem;
+        font-size: 2rem;
         cursor: pointer;
-        color: #888;
+        color: #000;
       }
 
       .close-form-btn:hover {
@@ -149,6 +161,8 @@
           transform: translateY(-3px);
       }
     </style>
+   
+
   </head>
   <body>
     <!-- -------Hero section------ -->
@@ -158,6 +172,11 @@
           class="background overlay"
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
+
+       <div id="menuToggle" style="font-size: 24px; cursor: pointer; display: flex; margin-top: 2rem; justify-content: center;">
+  <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
+  <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
+</div>
 
         <div class="openAndClose" id="toggleButton">
           <a href="#" id="toggleSM">SM</a>
@@ -242,12 +261,12 @@
           on solutions. We are committed to rewriting the African narrative and
           rebuilding it together. We can develop a future that embodies dignity.
         </p>
+                <p id="journey-button" class="journey-button">Journey</p>
+
       </div>
     </div>
     
-    <div class="journey-button-container">
-      <button id="journey-button" class="journey-button">Journey</button>
-    </div>
+      <!-- <button id="journey-button" class="journey-button">Journey</button> -->
     
     <div id="my-journey" class="journey-section">
       <div class="journey-paragraph">
@@ -285,23 +304,51 @@
     </div>
 
     <!-- Modern Connect Form Modal -->
-    <div class="contact-form-modal" id="contactFormModal">
+    <div class="contact-form-modal" id="contactFormModal" style="overflow-y: scroll">
       <div class="contact-form-container">
         <span class="close-form-btn" id="closeForm">&times;</span>
-        <h3>Connect With Us</h3>
+        <h3>Connect Us</h3>
         <form>
-          <input type="text" placeholder="Full Name" required />
+          <div>
+            <span>Full Name</span>
+ <input type="text" placeholder="Full Name" required />
+          </div>
+         <div>
+            <span>Email</span>
           <input type="email" placeholder="Email Address" required />
+          </div>
+          <section style="display: flex; flex-direction: row; gap: 1rem">
+          <div>
+                        <span>Phone Number</span>
           <input type="text" placeholder="Mobile" required />
-          <input type="text" placeholder="WhatsApp Number" required />
+          </div>
+          <!-- <input type="text" placeholder="WhatsApp Number" required /> -->
+           <div>
+            <span>City</span>
           <input type="text" placeholder="City" required />
-          <input type="number" placeholder="Age" required />
-          <select required>
-            <option value="">Select your interest</option>
-            <option value="writing">Writing</option>
-            <option value="acting">Acting</option>
-          </select>
+          </div>
+          </section>
+          <section style="display: flex; @media (min-width: 1000px) {
+            flex-direction: row; gap: 1rem;
+          } flex-direction: column;">
+  <div style="flex: 1">
+    <span>Age</span><br />
+    <input type="number" placeholder="Age" required style="width: 100%; padding: 0.6rem;" />
+  </div>
+  <div style="flex: 1">
+    <span>Select Field</span><br />
+    <select required style="width: 100%;">
+      <option value="">Select your interest</option>
+      <option value="writing">Writing</option>
+      <option value="acting">Acting</option>
+    </select>
+  </div>
+</section>
+
+          <div>
+                        <span>Your Message</span>
           <textarea placeholder="Your message..." rows="4" required></textarea>
+          </div>
           <button type="submit">Send Message</button>
         </form>
       </div>
@@ -527,5 +574,19 @@
         }
       });
     </script>
+     <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const hamburgerIcon = document.getElementById('hamburgerIcon');
+  const cancelIcon = document.getElementById('cancelIcon');
+  const body = document.body;
+
+  menuToggle.addEventListener('click', () => {
+    const isWhite = body.classList.toggle('white-overlay');
+    
+    // Toggle icon visibility
+    hamburgerIcon.style.display = isWhite ? 'none' : 'inline';
+    cancelIcon.style.display = isWhite ? 'inline' : 'none';
+  });
+</script>
   </body>
 </html>
