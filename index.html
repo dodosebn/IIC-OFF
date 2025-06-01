@@ -38,11 +38,13 @@
           class="background overlay"
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
-
-       <div id="menuToggle" style="font-size: 24px; cursor: pointer; display: flex; justify-content: center; margin-top: 2rem;">
-  <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
-  <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
-</div>
+       <section style="position: relative;">
+  <div id="menuToggle" 
+       style="font-size: 24px; position: absolute; top: 2rem; left: 50%; transform: translateX(-50%); cursor: pointer; display: flex; justify-content: center;">
+    <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
+    <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
+  </div>
+</section>
 
         <div class="openAndClose" id="toggleButton">
           <a href="#" id="toggleSM">SM</a>
@@ -68,6 +70,7 @@
           </div>
 
           <div class="container">
+            
             <div class="center-content text-light align-self-center">
               <h1 class="display-3 sans-serif-font font-bold" data-aos="fade" data-aos-delay="1800">
                 IDEA IS CAPITAL
@@ -77,6 +80,7 @@
               </p>
             </div>
           </div>
+          </section>
           <button class="values-button">Journey</button>
         </div>
 
