@@ -24,13 +24,20 @@ html, body {
 
 /* This will be added to body when the menu is active */
 .white-overlay {
-  background-color: white !important;
-  color: black !important;
+  background: white !important;
+  overflow: hidden !important;
+  height: 100vh;
 }
 
-/* Hide everything except the hamburger/cancel menu when active */
-.white-overlay .animation-inner > *:not(#menuToggle) {
-  display: none;
+.white-overlay *:not(#menuToggle):not(#hamburgerIcon):not(#cancelIcon) {
+  visibility: hidden;
+}
+
+#menuToggle,
+#hamburgerIcon,
+#cancelIcon {
+  visibility: visible !important;
+  z-index: 1000; 
 }
 
 

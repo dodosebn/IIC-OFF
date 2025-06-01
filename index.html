@@ -59,10 +59,11 @@
   align-items: center;
 }
 .contact-form-container::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
+  width: 10px; /* Width of the scrollbar */
 }
 .contact-form-container::-webkit-scrollbar-thumb {
-  background-color: #000; /* Darker gray thumb */
+  background-color: #888; /* Darker gray thumb */
+  border-radius: 10px;
   /* border: 2px solid #f1f1f1;  */
 }
 .contact-form-container {
@@ -173,7 +174,7 @@
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
 
-       <div id="menuToggle" style="font-size: 24px; cursor: pointer; display: flex; margin-top: 2rem; justify-content: center;">
+       <div id="menuToggle" style="font-size: 24px; cursor: pointer; display: flex; justify-content: center; margin-top: 2rem;">
   <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
   <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
 </div>
@@ -307,7 +308,7 @@
     <div class="contact-form-modal" id="contactFormModal" style="overflow-y: scroll">
       <div class="contact-form-container">
         <span class="close-form-btn" id="closeForm">&times;</span>
-        <h3>Connect Us</h3>
+        <h3>Connect With Us</h3>
         <form>
           <div>
             <span>Full Name</span>
