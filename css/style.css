@@ -300,40 +300,8 @@ a:hover, a:focus, a:active {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 80px; /* Increased from 80px to give more space */
+  width: 80px;
   z-index: 2;
-  display: flex;
-  gap: 0;
-  flex-direction: column;
-  justify-content: flex-end;
-  /* padding-bottom: 40px;  */
-  overflow: visible; 
-}
-
-.social-links {
-  margin-bottom: 18rem;
-  transform: rotate(-90deg) translateX(-50%); /* Adjusted transform */
-  transform-origin: left bottom; /* Set proper transform origin */
-  white-space: nowrap;
-  position: relative;
-  /* top: 10rem; */
-  left: 50%; /* Center the rotated element */
-  width: max-content; /* Only take needed width */
-}
-.social-links a {
-  font-family: "Oswald", "Impact", sans-serif;
-  vertical-align: middle;
-  margin-left: 10px;
-  margin-right: 10px;
-  /* padding: 6px; */
-  font-size: 13px;
-  letter-spacing: 5px;
-  -webkit-transition: color .3s ease;
-  -o-transition: color .3s ease;
-  transition: color .3s ease;
-  text-transform: uppercase;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar.sidebar-dark {
@@ -350,18 +318,35 @@ a:hover, a:focus, a:active {
   }
 }
 
-/* 
+
 .social-links {
+  margin-bottom: 50px;
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
   white-space: nowrap;
-} */
+}
 
 @media (max-width: 767px) {
   .social-links {
     display: none;
   }
+}
+
+.social-links a {
+  font-family: "Oswald", "Impact", sans-serif;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 13px;
+  letter-spacing: 5px;
+  -webkit-transition: color .3s ease;
+  -o-transition: color .3s ease;
+  transition: color .3s ease;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .social-links a:hover, .social-links a:focus {
