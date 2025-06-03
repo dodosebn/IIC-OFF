@@ -311,7 +311,58 @@ a:hover, a:focus, a:active {
 .sidebar.sidebar-light {
   background-color: transparent;
 }
+@media (min-width: 1000px) and (max-width: 2003px) {
+  .sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* width: 80px;  */
+  z-index: 2;
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* padding-bottom: 40px;  */
+  overflow: visible; 
+}
 
+.social-links {
+  margin-bottom: 28rem;
+  transform: rotate(-90deg) translateX(-50%); /* Adjusted transform */
+  transform-origin: left bottom; /* Set proper transform origin */
+  white-space: nowrap;
+  position: relative;
+  top: 15rem;
+  left: 50%; /* Center the rotated element */
+  width: max-content; /* Only take needed width */
+}
+
+.social-links a {
+  font-family: "Oswald", "Impact", sans-serif;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* padding: 6px; */
+  font-size: 13px;
+  letter-spacing: 5px;
+  -webkit-transition: color .3s ease;
+  -o-transition: color .3s ease;
+  transition: color .3s ease;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.sidebar.sidebar-dark {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.sidebar-light {
+  background-color: transparent;
+}
+
+}
 @media (max-width: 767px) {
   .sidebar.sidebar-dark, .sidebar.sidebar-light {
     background-color: transparent;
@@ -360,7 +411,12 @@ a:hover, a:focus, a:active {
 .sidebar-light .social-links a:hover, .sidebar-light .social-links a:focus {
   color: #000;
 }
+@media (min-width: 1900px) and (max-width: 2003px) {
+  .social-links {
+      top: 10rem;
 
+  }
+}
 [class^='vline'] {
   width: 1px;
   height: 100%;
