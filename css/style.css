@@ -145,24 +145,70 @@ html, body {
   background-repeat: no-repeat;
 }
 
-/* This will be added to body when the menu is active */
+/* White overlay when menu is active */
 .white-overlay {
   background: white !important;
   overflow: hidden !important;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 998;
 }
 
-.white-overlay *:not(#menuToggle):not(#hamburgerIcon):not(#cancelIcon) {
+/* Desktop visibility rules */
+.white-overlay *:not(#menuToggle):not(#hamburgerIcon):not(#cancelIcon):not(.social-links-container) {
   visibility: hidden;
 }
 
-#menuToggle,
-#hamburgerIcon,
-#cancelIcon {
-  visibility: visible !important;
-  z-index: 1000; 
+/* Mobile visibility rules */
+.white-overlay *:not(#toggleButton):not(#toggleSM):not(#closeSM):not(.sidebar) {
+  visibility: hidden;
 }
 
+/* Ensure toggle elements remain visible */
+#menuToggle,
+#hamburgerIcon,
+#cancelIcon,
+#toggleButton,
+#toggleSM,
+#closeSM {
+  visibility: visible !important;
+  z-index: 1000;
+}
+
+/* Mobile toggle button styles */
+.openAndClose {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .openAndClose {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+  /* Hide desktop toggle on mobile */
+  #menuToggle {
+    display: none;
+  }
+  
+  /* Make sure mobile toggle icons are properly styled */
+   #closeSM {
+    color: black;
+    font-size: 24px;
+  }
+  
+  /* Ensure sidebar remains visible when active */
+  .sidebar.active {
+    visibility: visible !important;
+  }
+}
 
 #scroll-to-top {
   position: fixed;
@@ -443,20 +489,37 @@ a:hover, a:focus, a:active {
 
 
 .social-links {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-toggle-container {
+  order: 1; /* Ensure menu is first in flex order */
+  padding: 20px;
+  z-index: 10;
+}
+
+.social-links-container {
+  order: 2; /* Social links come after menu */
   margin-bottom: 50px;
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
+  transform-origin: left top;
   white-space: nowrap;
+  position: absolute;
+  left: 20px;
+  /* Adjust based on your needs */
+  top: 50rem; /* Adjust based on your needs */
 }
 
 @media (max-width: 767px) {
-  .social-links {
+  .social-links-container {
     display: none;
   }
 }
 
-.social-links a {
+.social-links-container a {
   font-family: "Oswald", "Impact", sans-serif;
   vertical-align: middle;
   margin-left: 10px;
@@ -464,29 +527,29 @@ a:hover, a:focus, a:active {
   padding: 10px;
   font-size: 13px;
   letter-spacing: 5px;
-  -webkit-transition: color .3s ease;
-  -o-transition: color .3s ease;
   transition: color .3s ease;
   text-transform: uppercase;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.5);
 }
 
-.social-links a:hover, .social-links a:focus {
+.social-links-container a:hover, 
+.social-links-container a:focus {
   color: #fff;
 }
 
-.sidebar-light .social-links a {
+.sidebar-light .social-links-container a {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.sidebar-light .social-links a:hover, .sidebar-light .social-links a:focus {
+.sidebar-light .social-links-container a:hover, 
+.sidebar-light .social-links-container a:focus {
   color: #000;
 }
-@media (min-width: 1900px) and (max-width: 2003px) {
-  .social-links {
-      top: 10rem;
 
+@media (min-width: 1900px) and (max-width: 2003px) {
+  .social-links-container {
+    top: 10rem;
   }
 }
 [class^='vline'] {

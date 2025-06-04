@@ -31,107 +31,29 @@
     <link rel="stylesheet" href="./css/cleanUp.css">
     
     <style>
-      /* Improved toggle styles */
-      .mobile-header-icons {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        transition: all 0.3s ease;
-      }
+     
       
-      .icons-container {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-        transition: all 0.3s ease;
-      }
-      
-      .icons-container.show-icons {
-        flex-direction: row;
-        background: rgba(0,0,0,0.8);
-        padding: 15px;
-        border-radius: 10px;
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .share-label {
-        color: white;
-        font-size: 14px;
-        margin-right: 10px;
-        font-weight: bold;
-        display: none;
-      }
-      
-      .icons-container.show-icons .share-label {
-        display: block;
-      }
-      
-      .social-icon {
-        color: white;
-        font-size: 18px;
-        transition: all 0.2s ease;
-      }
-      
-      .social-icon:hover {
-        transform: scale(1.1);
-      }
-      
-      .openAndClose {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        background: #000;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .openAndClose:hover {
-        background: #333;
-      }
-      
-      #toggleSM {
-        font-size: 20px;
-        color: white;
-        transition: all 0.3s ease;
-      }
-      
-      /* Initially hide the icons on mobile */
-      @media (max-width: 768px) {
-        .icons-container {
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-20px);
-          flex-direction: row;
-          position: absolute;
-          right: 0;
-          top: 50px;
-          background: rgba(0,0,0,0.8);
-          padding: 15px;
-          border-radius: 10px;
-        }
-      }
-      
-      /* Show on desktop */
-      @media (min-width: 769px) {
-        .openAndClose {
-          display: none;
-        }
-        .icons-container {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-      }
+/* Hide mobile toggle on desktop */
+.openAndClose {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  /* Show mobile toggle button */
+  .openAndClose {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+  /* Hide desktop toggle in mobile */
+  #menuToggle {
+    display: none;
+  }
+}
     </style>
   </head>
   <body>
@@ -143,22 +65,12 @@
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
     
-        <!-- Mobile Toggle Button -->
+    
         <div class="openAndClose" id="toggleButton">
-          <i class="fas fa-bars" id="toggleSM" style="color: white;"></i>
-        </div>
+  <i class="fas fa-bars" id="toggleSM" style=" color: #fff;"></i></i>
+  <i class="fas fa-times" id="closeSM" style=" color: black;"></i>
+</div>
 
-        <!-- Social Icons Container -->
-        <div class="mobile-header-icons">
-          <div class="icons-container" id="socialIcons">
-            <span class="share-label">Share</span>
-            <a href="https://www.tiktok.com/@ideaiscapital" target="_blank"><i class="fab fa-tiktok social-icon"></i></a>
-            <a href="http://instagram.com/ideaiscapital" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
-            <a href="http://x.com/Ideaiscapital" target="_blank"><i class="fab fa-x-twitter social-icon"></i></a>
-            <a href="https://wa.me/?text=Check%20out%20Idea%20Is%20Capital%20-%20Innovative%20%7C%20Imaginative%20%7C%20Creative%20https%3A%2F%2Fwww.ideaiscapital.com" target="_blank"><i class="fab fa-whatsapp social-icon"></i></a>
-            <a href="https://t.me/share/url?url=https%3A%2F%2Fwww.ideaiscapital.com&text=Check%20out%20Idea%20Is%20Capital%20-%20Innovative%20%7C%20Imaginative%20%7C%20Creative" target="_blank"><i class="fab fa-telegram social-icon"></i></a>
-          </div>
-        </div>
 
         <div class="content-section d-flex justify-content-center align-items-center">
           <div class="v-lines">
@@ -183,18 +95,23 @@
 
         <div class="sidebar sidebar-dark d-flex flex-column justify-content-end" data-aos="slide-left" data-aos-delay="3000">
           <div class="hamburger-menu mb-auto"></div>
-          <div class="social-links">
-            <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
-            <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
-            <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
-            <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
-            <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
-            <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
-            <a id="menuToggle" style="font-size: 24px; transform: translateX(-50%); cursor: pointer;">
-              <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
-              <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
-            </a>
-          </div>
+         <section class="social-links">
+  <div class="menu-toggle-container">
+    <a id="menuToggle" style="font-size: 24px; cursor: pointer;">
+      <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
+      <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
+    </a>
+  </div>
+           
+  <div class="social-links-container">
+    <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
+    <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
+    <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
+    <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
+    <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
+    <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
+  </div>
+</section>
         </div>
       </div>
     </div>
@@ -304,7 +221,17 @@
         </div>
       </div>
     </section>
-    
+    <!-- Mobile Footer (Hidden on Desktop) -->
+<div class="mobile-social-footer">
+  <div class="mobile-social-links">
+    <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
+    <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
+    <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
+    <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
+    <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
+    <a href="javascript:void(0);" id="openFormMobile">Connect</a>
+  </div>
+</div>
     <!-- Modern Connect Form Modal -->
     <div class="contact-form-modal" id="contactFormModal" style="overflow-y: scroll">
       <div class="contact-form-container">
@@ -517,7 +444,9 @@
           language === "en" ? "EN" : "FR";
       });
     </script>
-
+<script >
+  
+</script>
     <!-- Improved Mobile Toggle Script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -613,18 +542,57 @@
       });
     </script>
     
-    <script>
-      const menuToggle = document.getElementById('menuToggle');
-      const hamburgerIcon = document.getElementById('hamburgerIcon');
-      const cancelIcon = document.getElementById('cancelIcon');
-      const body = document.body;
+     <script>
+      // Desktop menu toggle functionality
+      document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const cancelIcon = document.getElementById('cancelIcon');
+        const socialLinksContainer = document.querySelector('.social-links-container');
+        const body = document.body;
 
-      menuToggle.addEventListener('click', () => {
-        const isWhite = body.classList.toggle('white-overlay');
-        
-        // Toggle icon visibility
-        hamburgerIcon.style.display = isWhite ? 'none' : 'inline';
-        cancelIcon.style.display = isWhite ? 'inline' : 'none';
+        menuToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = socialLinksContainer.classList.contains('show');
+          
+          if (isOpen) {
+            socialLinksContainer.classList.remove('show');
+            body.classList.remove('white-overlay');
+            hamburgerIcon.style.display = 'inline';
+            cancelIcon.style.display = 'none';
+          } else {
+            socialLinksContainer.classList.add('show');
+            body.classList.add('white-overlay');
+            hamburgerIcon.style.display = 'none';
+            cancelIcon.style.display = 'inline';
+          }
+        });
+      });
+
+      // Mobile menu toggle functionality
+      document.addEventListener("DOMContentLoaded", function() {
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleSM = document.getElementById('toggleSM');
+        const closeSM = document.getElementById('closeSM');
+        const sidebar = document.querySelector('.sidebar');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = sidebar.classList.contains('active');
+          
+          if (isOpen) {
+            sidebar.classList.remove('active');
+            body.classList.remove('white-overlay');
+            toggleSM.style.display = 'inline';
+            closeSM.style.display = 'none';
+          } else {
+            sidebar.classList.add('active');
+            body.classList.add('white-overlay');
+            toggleSM.style.display = 'none';
+            closeSM.style.display = 'inline';
+          }
+        });
       });
     </script>
   </body>
