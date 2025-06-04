@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../filosofi/assets/css/style.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -27,8 +28,111 @@
     <link rel="stylesheet" href="css/our-journey.css" />
     <link rel="stylesheet" href="css/brand.css" />
     <link rel="stylesheet" href="css/hero-mobile-icons.css" />
-<link rel="stylesheet" href="./css/cleanUp.css">
+    <link rel="stylesheet" href="./css/cleanUp.css">
     
+    <style>
+      /* Improved toggle styles */
+      .mobile-header-icons {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      
+      .icons-container {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+      
+      .icons-container.show-icons {
+        flex-direction: row;
+        background: rgba(0,0,0,0.8);
+        padding: 15px;
+        border-radius: 10px;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .share-label {
+        color: white;
+        font-size: 14px;
+        margin-right: 10px;
+        font-weight: bold;
+        display: none;
+      }
+      
+      .icons-container.show-icons .share-label {
+        display: block;
+      }
+      
+      .social-icon {
+        color: white;
+        font-size: 18px;
+        transition: all 0.2s ease;
+      }
+      
+      .social-icon:hover {
+        transform: scale(1.1);
+      }
+      
+      .openAndClose {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        background: #000;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .openAndClose:hover {
+        background: #333;
+      }
+      
+      #toggleSM {
+        font-size: 20px;
+        color: white;
+        transition: all 0.3s ease;
+      }
+      
+      /* Initially hide the icons on mobile */
+      @media (max-width: 768px) {
+        .icons-container {
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-20px);
+          flex-direction: row;
+          position: absolute;
+          right: 0;
+          top: 50px;
+          background: rgba(0,0,0,0.8);
+          padding: 15px;
+          border-radius: 10px;
+        }
+      }
+      
+      /* Show on desktop */
+      @media (min-width: 769px) {
+        .openAndClose {
+          display: none;
+        }
+        .icons-container {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- -------Hero section------ -->
@@ -39,25 +143,20 @@
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
     
-
+        <!-- Mobile Toggle Button -->
         <div class="openAndClose" id="toggleButton">
-          <a href="#" id="toggleSM">SM</a>
+          <i class="fas fa-bars" id="toggleSM" style="color: white;"></i>
         </div>
 
+        <!-- Social Icons Container -->
         <div class="mobile-header-icons">
-          
           <div class="icons-container" id="socialIcons">
-              <!-- <a id="menuToggle" 
-       style="font-size: 24px;  transform: translateX(-50%); cursor: pointer; margin-left: 1.5rem;">
-    <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
-    <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
-               </a> -->
-            <a href="http://www.facebook.com/ideaiscapital" target="_blank"><i class="fab fa-facebook-f social-icon"></i></a>
-            <a href="http://x.com/Ideaiscapital" target="_blank"><i class="fab fa-x-twitter social-icon"></i></a>
+            <span class="share-label">Share</span>
             <a href="https://www.tiktok.com/@ideaiscapital" target="_blank"><i class="fab fa-tiktok social-icon"></i></a>
             <a href="http://instagram.com/ideaiscapital" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
-            <a href="http://linkedin.com/company/ideaiscapital/" target="_blank"><i class="fab fa-linkedin-in social-icon"></i></a>
-            <a href="javascript:void(0);" id="openForm"><i class="fas fa-phone social-icon"></i></a>
+            <a href="http://x.com/Ideaiscapital" target="_blank"><i class="fab fa-x-twitter social-icon"></i></a>
+            <a href="https://wa.me/?text=Check%20out%20Idea%20Is%20Capital%20-%20Innovative%20%7C%20Imaginative%20%7C%20Creative%20https%3A%2F%2Fwww.ideaiscapital.com" target="_blank"><i class="fab fa-whatsapp social-icon"></i></a>
+            <a href="https://t.me/share/url?url=https%3A%2F%2Fwww.ideaiscapital.com&text=Check%20out%20Idea%20Is%20Capital%20-%20Innovative%20%7C%20Imaginative%20%7C%20Creative" target="_blank"><i class="fab fa-telegram social-icon"></i></a>
           </div>
         </div>
 
@@ -70,7 +169,6 @@
           </div>
 
           <div class="container">
-            
             <div class="center-content text-light align-self-center">
               <h1 class="display-3 sans-serif-font font-bold" data-aos="fade" data-aos-delay="1800">
                 IDEA IS CAPITAL
@@ -80,7 +178,6 @@
               </p>
             </div>
           </div>
-          </section>
           <button class="values-button">Journey</button>
         </div>
 
@@ -93,11 +190,10 @@
             <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
             <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
             <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
-  <a id="menuToggle" 
-       style="font-size: 24px;  transform: translateX(-50%); cursor: pointer;">
-    <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
-    <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
-               </a>
+            <a id="menuToggle" style="font-size: 24px; transform: translateX(-50%); cursor: pointer;">
+              <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
+              <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -137,11 +233,8 @@
           rebuilding it together. We can develop a future that embodies dignity.
         </p>
       </div>
-                      <button class="values-button" id="journey-button" >Journey</button>
-
+      <button class="values-button" id="journey-button">Journey</button>
     </div>
-    
-      <!-- <button id="journey-button" class="journey-button">Journey</button> -->
     
     <div id="my-journey" class="journey-section">
       <div class="journey-paragraph">
@@ -176,9 +269,42 @@
           rebuilding it together. We can develop a future that embodies dignity.
         </p>
       </div>
-
     </div>
 
+    <section class="values-section">
+      <div class="container">
+        <div class="values-content">
+          <h2 class="section-title">Our Core Values</h2>
+          
+          <div class="values-grid">
+            <div class="value-card">
+              <h3>Vision</h3>
+              <p>
+                To ensure every professional is skilled, disciplined, and
+                empowered to excel with integrity.
+              </p>
+            </div>
+
+            <div class="value-card">
+              <h3>Mission</h3>
+              <p>
+                To transform youthful hyper-creativity into impactful
+                productivity for a better future.
+              </p>
+            </div>
+
+            <div class="value-card">
+              <h3>Promise</h3>
+              <p>
+                To build respectable brands and gain the trust of our
+                community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <!-- Modern Connect Form Modal -->
     <div class="contact-form-modal" id="contactFormModal" style="overflow-y: scroll">
       <div class="contact-form-container">
@@ -187,43 +313,42 @@
         <form>
           <div>
             <span>Full Name</span>
- <input type="text" placeholder="Full Name" required />
+            <input type="text" placeholder="Full Name" required />
           </div>
-         <div>
+          <div>
             <span>Email</span>
-          <input type="email" placeholder="Email Address" required />
+            <input type="email" placeholder="Email Address" required />
           </div>
           <section style="display: flex; flex-direction: row; gap: 1rem">
-          <div>
-                        <span>Phone Number</span>
-          <input type="text" placeholder="Mobile" required />
-          </div>
-          <!-- <input type="text" placeholder="WhatsApp Number" required /> -->
-           <div>
-            <span>City</span>
-          <input type="text" placeholder="City" required />
-          </div>
+            <div>
+              <span>Phone Number</span>
+              <input type="text" placeholder="Mobile" required />
+            </div>
+            <div>
+              <span>City</span>
+              <input type="text" placeholder="City" required />
+            </div>
           </section>
           <section style="display: flex; @media (min-width: 1000px) {
             flex-direction: row; gap: 1rem;
           } flex-direction: column;">
-  <div style="flex: 1">
-    <span>Age</span><br />
-    <input type="number" placeholder="Age" required style="width: 100%; padding: 0.6rem;" />
-  </div>
-  <div style="flex: 1">
-    <span>Select Field</span><br />
-    <select required style="width: 100%;">
-      <option value="">Select your interest</option>
-      <option value="writing">Writing</option>
-      <option value="acting">Acting</option>
-    </select>
-  </div>
-</section>
+            <div style="flex: 1">
+              <span>Age</span><br />
+              <input type="number" placeholder="Age" required style="width: 100%; padding: 0.6rem;" />
+            </div>
+            <div style="flex: 1">
+              <span>Select Field</span><br />
+              <select required style="width: 100%;">
+                <option value="">Select your interest</option>
+                <option value="writing">Writing</option>
+                <option value="acting">Acting</option>
+              </select>
+            </div>
+          </section>
 
           <div>
-                        <span>Your Message</span>
-          <textarea placeholder="Your message..." rows="4" required></textarea>
+            <span>Your Message</span>
+            <textarea placeholder="Your message..." rows="4" required></textarea>
           </div>
           <button type="submit">Send Message</button>
         </form>
@@ -231,7 +356,7 @@
     </div>
     
     <button id="scroll-to-top1">
-        <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JS Files -->
@@ -318,26 +443,26 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const scrollToTopBtn = document.getElementById('scroll-to-top1');
-            
-            // Show/hide button based on scroll position
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.classList.add('show');
-                } else {
-                    scrollToTopBtn.classList.remove('show');
-                }
-            });
-            
-            // Scroll to top when clicked
-            scrollToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
+      document.addEventListener('DOMContentLoaded', function() {
+          const scrollToTopBtn = document.getElementById('scroll-to-top1');
+          
+          // Show/hide button based on scroll position
+          window.addEventListener('scroll', function() {
+              if (window.pageYOffset > 300) {
+                  scrollToTopBtn.classList.add('show');
+              } else {
+                  scrollToTopBtn.classList.remove('show');
+              }
+          });
+          
+          // Scroll to top when clicked
+          scrollToTopBtn.addEventListener('click', function() {
+              window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+              });
+          });
+      });
     </script>
 
     <!-- HEADER SCRIPT................. -->
@@ -393,25 +518,58 @@
       });
     </script>
 
+    <!-- Improved Mobile Toggle Script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const toggleButton = document.getElementById("toggleButton");
-        const toggleSM = document.getElementById("toggleSM");
+        const toggleIcon = document.getElementById("toggleSM");
         const socialIcons = document.getElementById("socialIcons");
-
+        
+        // Check if mobile device
+        function isMobile() {
+          return window.innerWidth <= 768;
+        }
+        
+        // Toggle function
+        function toggleMenu() {
+          socialIcons.classList.toggle("show-icons");
+          
+          // Change icon
+          if (socialIcons.classList.contains("show-icons")) {
+            toggleIcon.classList.remove("fa-bars");
+            toggleIcon.classList.add("fa-times");
+          } else {
+            toggleIcon.classList.remove("fa-times");
+            toggleIcon.classList.add("fa-bars");
+          }
+        }
+        
+        // Initialize based on screen size
+        function initMenu() {
+          if (isMobile()) {
+            // Hide icons on mobile initially
+            socialIcons.classList.remove("show-icons");
+            toggleIcon.classList.remove("fa-times");
+            toggleIcon.classList.add("fa-bars");
+          } else {
+            // Show icons on desktop
+            socialIcons.classList.add("show-icons");
+          }
+        }
+        
+        // Set up event listener
         toggleButton.addEventListener("click", function (event) {
           event.preventDefault();
-
-          // Toggle the class to show/hide icons
-          socialIcons.classList.toggle("show-icons");
-
-          // Change button text accordingly
-          if (socialIcons.classList.contains("show-icons")) {
-            toggleSM.textContent = "X";
-          } else {
-            toggleSM.textContent = "SM";
-          }
+          toggleMenu();
         });
+        
+        // Handle window resize
+        window.addEventListener("resize", function() {
+          initMenu();
+        });
+        
+        // Initialize on load
+        initMenu();
       });
     </script>
     
@@ -434,35 +592,40 @@
 
       openFormBtn.addEventListener("click", () => {
         formModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
       });
       
       openFormMobile.addEventListener("click", () => {
         formModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
       });
 
       closeFormBtn.addEventListener("click", () => {
         formModal.style.display = "none";
+        document.body.style.overflow = "auto";
       });
 
       window.addEventListener("click", (e) => {
         if (e.target === formModal) {
           formModal.style.display = "none";
+          document.body.style.overflow = "auto";
         }
       });
     </script>
-     <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const hamburgerIcon = document.getElementById('hamburgerIcon');
-  const cancelIcon = document.getElementById('cancelIcon');
-  const body = document.body;
-
-  menuToggle.addEventListener('click', () => {
-    const isWhite = body.classList.toggle('white-overlay');
     
-    // Toggle icon visibility
-    hamburgerIcon.style.display = isWhite ? 'none' : 'inline';
-    cancelIcon.style.display = isWhite ? 'inline' : 'none';
-  });
-</script>
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const hamburgerIcon = document.getElementById('hamburgerIcon');
+      const cancelIcon = document.getElementById('cancelIcon');
+      const body = document.body;
+
+      menuToggle.addEventListener('click', () => {
+        const isWhite = body.classList.toggle('white-overlay');
+        
+        // Toggle icon visibility
+        hamburgerIcon.style.display = isWhite ? 'none' : 'inline';
+        cancelIcon.style.display = isWhite ? 'inline' : 'none';
+      });
+    </script>
   </body>
 </html>

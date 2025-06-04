@@ -12,6 +12,129 @@ html, body {
   /* font-family: 'Dosis', Arial, Sans-serif; */
 }
 
+ /* .values-grid {
+      grid-template-columns: repeat(1, 300px);
+      overflow-x: auto;
+      padding-bottom: 20px;
+      scroll-snap-type: x mandatory;
+    } */
+
+  :root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #000;
+    --accent-color: #0f3460;
+    --text-color: #333;
+    --light-text: #f1f1f1;
+    --bg-light: #f8f9fa;
+    --transition: all 0.3s ease;
+  }
+
+  .values-section {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: white;
+    text-align: left;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .value-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 40px 30px;
+    transition: var(--transition);
+  }
+
+  .value-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .value-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 0;
+    color: var(--light-text);
+    margin-bottom: 20px;
+  }
+
+  .value-card p {
+    margin: 0;
+    color: var(--light-text);
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .value-card:last-child {
+      grid-column: span 2;
+      max-width: calc(50% - 15px);
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .value-card:last-child {
+      grid-column: span 1;
+      max-width: 100%;
+    }
+    
+    .value-card {
+      padding: 30px 25px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .values-section {
+      padding: 60px 15px;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .value-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+    
+    .value-card {
+      padding: 25px 20px;
+    }
+  }
 
 .overlay {
   position: absolute;
