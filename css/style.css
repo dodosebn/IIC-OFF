@@ -228,7 +228,12 @@ html, body {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+@media (max-width: 1000px) {
+  #scroll-to-top {
+    display: none !important;
+  }
 
+}
 #scroll-to-top:hover {
   background-color: #444;
   transform: scale(1.1);
@@ -492,25 +497,32 @@ a:hover, a:focus, a:active {
   position: relative;
   height: 100vh;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
 }
 
 .menu-toggle-container {
-  order: 1; /* Ensure menu is first in flex order */
+  order: 1;
   padding: 20px;
   z-index: 10;
 }
+.vertical-icon {
+  display: inline-block;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
 
 .social-links-container {
-  order: 2; /* Social links come after menu */
-  margin-bottom: 50px;
+  order: 2;
+  /* margin-bottom: 50px; */
   transform: rotate(-90deg);
   transform-origin: left top;
   white-space: nowrap;
-  position: absolute;
-  left: 20px;
+  position: fixed; 
+    left: 20px;
+  bottom: 0;
   /* Adjust based on your needs */
-  top: 50rem; /* Adjust based on your needs */
 }
 
 @media (max-width: 767px) {

@@ -31,76 +31,81 @@
     <link rel="stylesheet" href="./css/cleanUp.css">
     
     <style>
-     
+      /* Vertical icon rotation - will persist through toggles */
+      .vertical-icon {
+        display: inline-block;
+        transform: rotate(-90deg);
+        transform-origin: center;
+      }
       
-/* Hide mobile toggle on desktop */
-.openAndClose {
-  display: none;
-}
+      /* Hide mobile toggle on desktop */
+      .openAndClose {
+        display: none;
+      }
 
-@media (max-width: 767px) {
-  /* Show mobile toggle button */
-  .openAndClose {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    cursor: pointer;
-  }
+      @media (max-width: 767px) {
+        /* Show mobile toggle button */
+        .openAndClose {
+          display: block;
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 1000;
+          cursor: pointer;
+        }
 
-  /* Hide desktop toggle in mobile */
-  #menuToggle {
-    display: none;
-  }
-}
+        /* Hide desktop toggle in mobile */
+        #menuToggle {
+          display: none;
+        }
+      }
     </style>
     <style>
-  /* Mobile Footer Styles */
-  .mobile-social-footer {
-    display: none; /* Hidden by default */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 15px 0;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-  
-  .mobile-social-links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .mobile-social-links a {
-    color: #fff;
-    text-decoration: none;
-    font-family: "Oswald", sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 5px 8px;
-    margin: 0 2px;
-  }
-  
-  /* Show only on mobile */
-  @media (max-width: 767px) {
-    .mobile-social-footer {
-      display: block;
-    }
-  }
-  
-  /* Hide desktop social links container on mobile */
-  @media (max-width: 767px) {
-    .social-links-container {
-      display: none;
-    }
-  }
-</style>
+      /* Mobile Footer Styles */
+      .mobile-social-footer {
+        display: none; /* Hidden by default */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 15px 0;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+      }
+      
+      .mobile-social-links {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      
+      .mobile-social-links a {
+        color: #fff;
+        text-decoration: none;
+        font-family: "Oswald", sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 8px;
+        margin: 0 2px;
+      }
+      
+      /* Show only on mobile */
+      @media (max-width: 767px) {
+        .mobile-social-footer {
+          display: block;
+        }
+      }
+      
+      /* Hide desktop social links container on mobile */
+      @media (max-width: 767px) {
+        .social-links-container {
+          display: none;
+        }
+      }
+    </style>
 
   </head>
   <body>
@@ -112,12 +117,10 @@
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
     
-    
         <div class="openAndClose" id="toggleButton">
-  <i class="fas fa-bars" id="toggleSM" style=" color: #fff;"></i></i>
-  <i class="fas fa-times" id="closeSM" style=" color: black;"></i>
-</div>
-
+          <i class="fas fa-bars" id="toggleSM" style="color: #fff;"></i>
+          <i class="fas fa-times" id="closeSM" style="display: none; color: black;"></i>
+        </div>
 
         <div class="content-section d-flex justify-content-center align-items-center">
           <div class="v-lines">
@@ -142,23 +145,23 @@
 
         <div class="sidebar sidebar-dark d-flex flex-column justify-content-end" data-aos="slide-left" data-aos-delay="3000">
           <div class="hamburger-menu mb-auto"></div>
-         <section class="social-links">
-  <div class="menu-toggle-container">
-    <a id="menuToggle" style="font-size: 24px; cursor: pointer;">
-      <i class="fas fa-bars" id="hamburgerIcon" style="color: white;"></i>
-      <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
-    </a>
-  </div>
+          <section class="social-links">
+            <div class="menu-toggle-container">
+              <a id="menuToggle" style="font-size: 24px; cursor: pointer;">
+                <i class="fas fa-bars vertical-icon" id="hamburgerIcon" style="color: white;"></i>
+                <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
+              </a>
+            </div>
            
-  <div class="social-links-container">
-    <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
-    <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
-    <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
-    <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
-    <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
-    <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
-  </div>
-</section>
+            <div class="social-links-container">
+              <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
+              <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
+              <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
+              <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
+              <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
+              <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -269,16 +272,16 @@
       </div>
     </section>
     <!-- Mobile Footer (Hidden on Desktop) -->
-<div class="mobile-social-footer">
-  <div class="mobile-social-links">
-    <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
-    <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
-    <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
-    <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
-    <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
-    <a href="javascript:void(0);" id="openFormMobile">Connect</a>
-  </div>
-</div>
+    <div class="mobile-social-footer">
+      <div class="mobile-social-links">
+        <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
+        <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
+        <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
+        <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
+        <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
+        <a href="javascript:void(0);" id="openFormMobile">Connect</a>
+      </div>
+    </div>
     <!-- Modern Connect Form Modal -->
     <div class="contact-form-modal" id="contactFormModal" style="overflow-y: scroll">
       <div class="contact-form-container">
@@ -397,6 +400,7 @@
             }
           }
           return currentIndex;
+        
         }
 
         function handleScroll() {
@@ -413,7 +417,9 @@
         });
 
         window.addEventListener("scroll", handleScroll);
+        
       });
+      
     </script>
 
     <script>
@@ -491,9 +497,7 @@
           language === "en" ? "EN" : "FR";
       });
     </script>
-<script >
-  
-</script>
+
     <!-- Improved Mobile Toggle Script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -589,8 +593,8 @@
       });
     </script>
     
-     <script>
-      // Desktop menu toggle functionality
+    <script>
+      // Desktop menu toggle functionality - Fixed version
       document.addEventListener("DOMContentLoaded", function() {
         const menuToggle = document.getElementById('menuToggle');
         const hamburgerIcon = document.getElementById('hamburgerIcon');
@@ -600,18 +604,20 @@
 
         menuToggle.addEventListener('click', (e) => {
           e.preventDefault();
-          const isOpen = socialLinksContainer.classList.contains('show');
+          const isOpen = hamburgerIcon.style.display === 'none';
           
           if (isOpen) {
+            // Close menu
             socialLinksContainer.classList.remove('show');
             body.classList.remove('white-overlay');
-            hamburgerIcon.style.display = 'inline';
+            hamburgerIcon.style.display = 'inline-block'; // Keep as inline-block to maintain rotation
             cancelIcon.style.display = 'none';
           } else {
+            // Open menu
             socialLinksContainer.classList.add('show');
             body.classList.add('white-overlay');
             hamburgerIcon.style.display = 'none';
-            cancelIcon.style.display = 'inline';
+            cancelIcon.style.display = 'inline-block';
           }
         });
       });
@@ -643,27 +649,27 @@
       });
     </script>
     <script>
-  // Make sure the mobile footer connect button works
-  document.addEventListener("DOMContentLoaded", function() {
-    const openFormMobile = document.getElementById("openFormMobile");
-    const formModal = document.getElementById("contactFormModal");
-    const closeFormBtn = document.getElementById("closeForm");
-    
-    if (openFormMobile) {
-      openFormMobile.addEventListener("click", () => {
-        formModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
+      // Make sure the mobile footer connect button works
+      document.addEventListener("DOMContentLoaded", function() {
+        const openFormMobile = document.getElementById("openFormMobile");
+        const formModal = document.getElementById("contactFormModal");
+        const closeFormBtn = document.getElementById("closeForm");
+        
+        if (openFormMobile) {
+          openFormMobile.addEventListener("click", () => {
+            formModal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          });
+        }
+        
+        if (closeFormBtn) {
+          closeFormBtn.addEventListener("click", () => {
+            formModal.style.display = "none";
+            document.body.style.overflow = "auto";
+          });
+        }
       });
-    }
-    
-    if (closeFormBtn) {
-      closeFormBtn.addEventListener("click", () => {
-        formModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      });
-    }
-  });
-</script>
+    </script>
 
   </body>
 </html>
