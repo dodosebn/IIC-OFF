@@ -59,6 +59,15 @@
           display: none;
         }
       }
+      
+      /* Text animation styles */
+      .changing-word {
+        color: #007bff; /* Blue color for changing words */
+      }
+      
+      .tagline {
+        transition: opacity 1.5s ease-in-out;
+      }
     </style>
     <style>
       /* Mobile Footer Styles */
@@ -147,10 +156,12 @@
 
           <div class="container">
             <div class="center-content text-light align-self-center">
-              <h1 class="display-3 sans-serif-font font-bold" data-aos="fade" data-aos-delay="1800">
-                IDEA IS CAPITAL
+              <h1 class="display-3 sans-serif-font font-bold">
+                <span id="idea-text">IDEA IS </span>
+                <span id="changing-text" class="changing-word"></span>
+                <span id="final-text" style="display:none;">CAPITAL</span>
               </h1>
-              <p class="lead my-2 my-sm-4" data-aos="fade" data-aos-delay="2500">
+              <p class="lead my-2 my-sm-4 tagline" style="opacity:0;">
                 Innovative | Imaginative | Creative
               </p>
             </div>
@@ -323,6 +334,37 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Text animation script
+        const changingText = document.getElementById('changing-text');
+        const finalText = document.getElementById('final-text');
+        const tagline = document.querySelector('.tagline');
+        
+        const words = ['CHANGE', 'ACTION', 'PURPOSE'];
+        let currentIndex = 0;
+        
+        function animateText() {
+          // Show changing words sequence
+          if (currentIndex < words.length) {
+            changingText.textContent = words[currentIndex];
+            currentIndex++;
+            setTimeout(animateText, 1500); // 1 second between words
+          } 
+          // Show final text
+          else if (currentIndex === words.length) {
+            changingText.style.display = 'none';
+            finalText.style.display = 'inline';
+            currentIndex++;
+            
+            // Fade in tagline after final text appears
+            setTimeout(() => {
+              tagline.style.opacity = '1';
+            }, 500);
+          }
+        }
+        
+        // Start animation after a brief delay (to match your existing aos delay)
+        setTimeout(animateText, 1800);
+
         // Scroll to Our Journey section when Our Journey button is clicked
         document
           .querySelector(".values-button")
