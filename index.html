@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../filosofi/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="../filosofi/assets/css/style.css"> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -132,7 +132,8 @@
         ></div>
     
         <div class="openAndClose" id="toggleButton">
-          <i class="fas fa-bars vertical-icon" id="toggleSM" style="color: #fff;"></i>
+          <a href="/xtraInfo.html" style="background-color: #000;">
+            <i class="fas fa-bars vertical-icon" style="color: #fff;"></i></a>
           <i class="fas fa-times" id="closeSM" style="display: none; color: black;"></i>
         </div>
 
@@ -161,8 +162,8 @@
           <!-- <div class="hamburger-menu mb-auto"></div> -->
            <div class="altSolver">
             <div class="menu-toggle-container">
-              <a id="menuToggle" style="font-size: 24px; cursor: pointer;">
-                <i class="fas fa-bars vertical-icon" id="hamburgerIcon" style="color: white;"></i>
+              <a id="menuToggle" href="/xtraInfo.html" style="font-size: 24px; cursor: pointer;">
+                <i class="fas fa-bars vertical-icon" style="color: white;"></i>
                 <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
               </a>
             </div>
@@ -173,7 +174,7 @@
               <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
               <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
               <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
-              <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
+              <!-- <a href="javascript:void(0);" id="openFormSidebar">Connect</a> -->
             </div>
           </section>
           </div>
@@ -294,58 +295,11 @@
         <li><a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a></li>
         <li><a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a></li>
         <li><a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a></li>
-        <li><a href="javascript:void(0);" id="openFormMobile">Connect</a></li>
+        <!-- <li><a href="javascript:void(0);" id="openFormMobile">Connect</a></li> -->
       </ul>
     </div>
     <!-- Modern Connect Form Modal -->
-    <div class="contact-form-modal" id="contactFormModal" style="overflow-y: scroll">
-      <div class="contact-form-container">
-        <span class="close-form-btn" id="closeForm">&times;</span>
-        <h3>Connect With Us</h3>
-        <form>
-          <div>
-            <span>Full Name</span>
-            <input type="text" placeholder="Full Name" required />
-          </div>
-          <div>
-            <span>Email</span>
-            <input type="email" placeholder="Email Address" required />
-          </div>
-          <section style="display: flex; flex-direction: row; gap: 1rem">
-            <div>
-              <span>Phone Number</span>
-              <input type="text" placeholder="Mobile" required />
-            </div>
-            <div>
-              <span>City</span>
-              <input type="text" placeholder="City" required />
-            </div>
-          </section>
-          <section style="display: flex; @media (min-width: 1000px) {
-            flex-direction: row; gap: 1rem;
-          } flex-direction: column;">
-            <div style="flex: 1">
-              <span>Age</span><br />
-              <input type="number" placeholder="Age" required style="width: 100%; padding: 0.6rem;" />
-            </div>
-            <div style="flex: 1">
-              <span>Select Field</span><br />
-              <select required style="width: 100%;">
-                <option value="">Select your interest</option>
-                <option value="writing">Writing</option>
-                <option value="acting">Acting</option>
-              </select>
-            </div>
-          </section>
-
-          <div>
-            <span>Your Message</span>
-            <textarea placeholder="Your message..." rows="4" required></textarea>
-          </div>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </div>
+   
     
     <button id="scroll-to-top1">
       <i class="fas fa-arrow-up"></i>
@@ -513,71 +467,6 @@
       });
     </script>
 
-    <!-- Improved Mobile Toggle Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const toggleButton = document.getElementById("toggleButton");
-        const toggleIcon = document.getElementById("toggleSM");
-        const socialIcons = document.getElementById("socialIcons");
-        
-        // Check if mobile device
-        function isMobile() {
-          return window.innerWidth <= 768;
-        }
-        
-        // Toggle function
-        function toggleMenu() {
-          socialIcons.classList.toggle("show-icons");
-          
-          // Change icon
-          if (socialIcons.classList.contains("show-icons")) {
-            toggleIcon.classList.remove("fa-bars");
-            toggleIcon.classList.add("fa-times");
-          } else {
-            toggleIcon.classList.remove("fa-times");
-            toggleIcon.classList.add("fa-bars");
-          }
-        }
-        
-        // Initialize based on screen size
-        function initMenu() {
-          if (isMobile()) {
-            // Hide icons on mobile initially
-            socialIcons.classList.remove("show-icons");
-            toggleIcon.classList.remove("fa-times");
-            toggleIcon.classList.add("fa-bars");
-          } else {
-            // Show icons on desktop
-            socialIcons.classList.add("show-icons");
-          }
-        }
-        
-        // Set up event listener
-        toggleButton.addEventListener("click", function (event) {
-          event.preventDefault();
-          toggleMenu();
-        });
-        
-        // Handle window resize
-        window.addEventListener("resize", function() {
-          initMenu();
-        });
-        
-        // Initialize on load
-        initMenu();
-      });
-    </script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById('journey-button').addEventListener('click', function() {
-          document.getElementById('my-journey').scrollIntoView({
-            behavior: 'smooth'
-          });
-        });
-      });
-    </script>
-    
     <!-- Contact Form Script -->
     <script>
       const openFormBtn = document.getElementById("openFormSidebar");
@@ -608,61 +497,6 @@
       });
     </script>
     
-    <script>
-      // Desktop menu toggle functionality - Fixed version
-      document.addEventListener("DOMContentLoaded", function() {
-        const menuToggle = document.getElementById('menuToggle');
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const cancelIcon = document.getElementById('cancelIcon');
-        const socialLinksContainer = document.querySelector('.social-links-container');
-        const body = document.body;
-
-        menuToggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = hamburgerIcon.style.display === 'none';
-          
-          if (isOpen) {
-            // Close menu
-            socialLinksContainer.classList.remove('show');
-            body.classList.remove('white-overlay');
-            hamburgerIcon.style.display = 'inline-block'; // Keep as inline-block to maintain rotation
-            cancelIcon.style.display = 'none';
-          } else {
-            // Open menu
-            socialLinksContainer.classList.add('show');
-            body.classList.add('white-overlay');
-            hamburgerIcon.style.display = 'none';
-            cancelIcon.style.display = 'inline-block';
-          }
-        });
-      });
-
-      // Mobile menu toggle functionality
-      document.addEventListener("DOMContentLoaded", function() {
-        const toggleButton = document.getElementById('toggleButton');
-        const toggleSM = document.getElementById('toggleSM');
-        const closeSM = document.getElementById('closeSM');
-        const sidebar = document.querySelector('.sidebar');
-        const body = document.body;
-
-        toggleButton.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = sidebar.classList.contains('active');
-          
-          if (isOpen) {
-            sidebar.classList.remove('active');
-            body.classList.remove('white-overlay');
-            toggleSM.style.display = 'inline-block';
-            closeSM.style.display = 'none';
-          } else {
-            sidebar.classList.add('active');
-            body.classList.add('white-overlay');
-            toggleSM.style.display = 'none';
-            closeSM.style.display = 'inline';
-          }
-        });
-      });
-    </script>
     <script>
       // Make sure the mobile footer connect button works
       document.addEventListener("DOMContentLoaded", function() {

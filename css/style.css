@@ -9,7 +9,7 @@
 html, body {
   height: 100%;
   min-height: 100%;
-  /* font-family: 'Dosis', Arial, Sans-serif; */
+  font-family: 'Dosis', Arial, Sans-serif;
 }
 
  /* .values-grid {
@@ -199,6 +199,7 @@ html, body {
     right: 20px;
     z-index: 1000;
     cursor: pointer;
+    /* background-color: #000; */
   }
 
   /* Hide desktop toggle on mobile */
@@ -502,7 +503,7 @@ a:hover, a:focus, a:active {
    align-self: flex-start;
      vertical-align: middle;
 /* position: absolute; */
-  margin-left: 2.1rem !important;
+  margin-left: 2.05rem !important;
 top: 0;
 }
 
@@ -526,7 +527,8 @@ top: 0;
  transform: rotate(-90deg) translateX(0); 
   /* transform-origin: left bottom;  */
   white-space: nowrap;
-  margin-bottom: 1rem;
+  /* margin-top: 2rem; */
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 767px) {
@@ -550,7 +552,16 @@ top: 0;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.5);
 }
+@media (max-width: 1767px) {
+  .social-links {
+  margin-bottom: 1.5rem;
 
+  }
+  .social-links a {
+    padding: 8px;
+  font-size: 11px;
+  }
+}
 .social-links a:hover, .social-links a:focus {
   color: #fff;
 }

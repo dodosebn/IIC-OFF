@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connect With Us | Idea Is Capital</title>
+    <!-- Meta Share -->
+    <meta property="og:title" content="Idea Is Capital" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/bg-one.jpg" />
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../filosofi/assets/css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="../filosofi/assets/css/style.css"> -->
+    
+  <!-- Fonts -->
+    <link rel="stylesheet" href="/css/style.css"><!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    /* Reset and Base Styles */
+    @charset "UTF-8";
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+  font-family: 'Dosis', Arial, Sans-serif;
+      background-color: #f8f8f8;
+      color: #000;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    .sans-serif-font {
+  font-family: "Dosis", Arial, Sans-serif  !important;
+}
+    /* Contact Form Container */
+    .contact-form-modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    form{
+                 font-size: 18px;
+    }
+    .contact-form-container {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+      position: relative;
+
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+        z-index: 1000;
+              transition: color 0.3s ease;
+
+      }
+    
+    .close-form-btn:hover {
+      color: #000;
+    }
+    
+    h3 {
+      /* font-family: 'Playfair Display', serif; */
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #000;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    
+    /* Form Elements */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    form > div, form > section {
+      width: 100%;
+    }
+    
+    span {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: #000;
+      font-weight: 500;
+    }
+    
+    input, textarea, select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      /* font-family: 'Oswald', sans-serif; */
+      font-weight: 300;
+      letter-spacing: 1px;
+      transition: border 0.3s ease;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #000;
+    }
+    
+    /* Row Sections */
+    .form-row {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .form-row > div {
+      flex: 1;
+    }
+    
+    /* Button */
+    button[type="submit"] {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 1rem;
+      /* font-family: 'Oswald', sans-serif; */
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #333;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .contact-form-modal {
+        padding: 1rem;
+      }
+      
+      .contact-form-container {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-form-modal sans-serif-font" id="contactFormModal">
+    <div class="contact-form-container">
+<a href="/xtraInfo.html" class="close-btn">
+      <i class="fas fa-times"></i>
+    </a>      <h3>Connect With Us</h3>
+      <form>
+        <div>
+          <span>Full Name</span>
+          <input type="text" placeholder="Full Name" required />
+        </div>
+        
+        <div>
+          <span>Email</span>
+          <input type="email" placeholder="Email Address" required />
+        </div>
+        
+        <section class="form-row">
+          <div>
+            <span>Phone Number</span>
+            <input type="tel" placeholder="Mobile" required />
+          </div>
+          <div>
+            <span>City</span>
+            <input type="text" placeholder="City" required />
+          </div>
+        </section>
+        
+        <section class="form-row">
+          <div>
+            <span>Age</span>
+            <input type="number" placeholder="Age" required />
+          </div>
+          <div>
+            <span>Select Field</span>
+            <select required>
+              <option value="">Select your interest</option>
+              <option value="writing">Writing</option>
+              <option value="acting">Acting</option>
+              <!-- <option value="directing">Directing</option>
+              <option value="production">Production</option>
+              <option value="investing">Investing</option> -->
+            </select>
+          </div>
+        </section>
+        
+        <div>
+          <span>Your Message</span>
+          <textarea placeholder="Your message..." rows="4" required></textarea>
+        </div>
+        
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Simple script to handle form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+    
+    // Close button functionality (can remove if not needed in standalone page)
+    document.getElementById('closeForm').addEventListener('click', function() {
+      window.location.href = 'index.html'; // Change to your desired redirect
+    });
+  </script>
+</body>
+</html>
