@@ -1,194 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Idea Is Capital</title>
-    <!-- Meta Share -->
-    <meta property="og:title" content="Idea Is Capital" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="images/bg-one.jpg" />
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/icon-font.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/slick.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/our-journey.css" />
-    <link rel="stylesheet" href="css/brand.css" />
-    <link rel="stylesheet" href="css/hero-mobile-icons.css" />
-    <link rel="stylesheet" href="./css/cleanUp.css">
-    
-    <style>
-      /* Vertical icon rotation - will persist through toggles */
-      .vertical-icon {
-        display: inline-block;
-        transform: rotate(-90deg);
-        transform-origin: center;
-      }
-      
-      /* Hide mobile toggle on desktop */
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Idea Is Capital</title>
+
+  <meta property="og:title" content="Idea Is Capital" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/bg-one.jpg" />
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/icon-font.css" />
+  <link rel="stylesheet" href="css/aos.css" />
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/our-journey.css" />
+  <link rel="stylesheet" href="css/brand.css" />
+  <link rel="stylesheet" href="css/hero-mobile-icons.css" />
+  <link rel="stylesheet" href="./css/cleanUp.css">
+
+  <style>
+    .vertical-icon {
+      display: inline-block;
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .openAndClose {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
       .openAndClose {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        cursor: pointer;
+      }
+
+      #menuToggle {
         display: none;
       }
+    }
 
-      @media (max-width: 767px) {
-        /* Show mobile toggle button */
-        .openAndClose {
-          display: block;
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          z-index: 1000;
-          cursor: pointer;
-        }
+    .changing-word {
+      color: #007bff;
+    }
 
-        /* Hide desktop toggle in mobile */
-        #menuToggle {
-          display: none;
-        }
-      }
-      
-      /* Text animation styles */
-      .changing-word {
-        color: #007bff; /* Blue color for changing words */
-      }
-      
-      .tagline {
-        transition: opacity 1.5s ease-in-out;
-      }
-    </style>
-    <style>
-      /* Mobile Footer Styles */
+    .capital-word {
+      color: #ffffff;
+    }
+
+    .tagline {
+      transition: all 0.5s ease-in-out;
+      opacity: 0;
+      font-size: 1.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .tagline.large {
+      font-size: 2.05rem;
+      margin-top: -20px;
+    }
+
+    .mobile-social-footer {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #191919;
+      padding: 15px 0;
+      z-index: 999;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .mobile-social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-social-links li {
+      position: relative;
+      padding: 0 15px;
+    }
+
+    .mobile-social-links li:not(:last-child)::after {
+      content: "|";
+      position: absolute;
+      right: -2px;
+      color: #fff;
+    }
+
+    .mobile-social-links a {
+      color: #fff;
+      text-decoration: none;
+      font-family: "Oswald", sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 5px 0;
+    }
+
+    @media (max-width: 767px) {
       .mobile-social-footer {
-        display: none; /* Hidden by default */
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #191919;
-        padding: 15px 0;
-        z-index: 999;
+        display: block !important;
       }
-      
-      .mobile-social-links {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-        margin: 0;
+
+      .social-links-container {
+        display: none;
       }
-      
-      .mobile-social-links li {
-        position: relative;
-        padding: 0 15px;
-      }
-      
-      .mobile-social-links li:not(:last-child)::after {
-        content: "|"; 
-        position: absolute;
-        right: -2px;
-        color: #fff;
-      }
-      
-      .mobile-social-links a {
-        color: #fff;
-        text-decoration: none;
-        font-family: "Oswald", sans-serif;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 5px 0;
-      }
-      
-      /* Show only on mobile */
-      @media (max-width: 767px) {
-        .mobile-social-footer {
-          display: block;
-        }
-      }
-      
-      /* Hide desktop social links container on mobile */
-      @media (max-width: 767px) {
-        .social-links-container {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- -------Hero section------ -->
-    <div class="animation anim-dark" data-aos="slide-effect-2">
-      <div class="wrapper animation-inner">
-        <div
-          class="background overlay"
-          style="background-image: url('/images/slide-1.jpg')"
-        ></div>
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background-color: white;
+      animation: blink 1s infinite;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .values-button {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .values-button.show {
+      opacity: 1;
+    }
+
+    .sidebar {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
     
-        <div class="openAndClose" id="toggleButton">
-          <a href="/xtraInfo.html" style="background-color: #000;">
-            <i class="fas fa-bars vertical-icon" style="color: #fff;"></i></a>
-          <i class="fas fa-times" id="closeSM" style="display: none; color: black;"></i>
+    .sidebar.show{
+      opacity: 1;
+    }
+
+    .tagline.large ~ .center-content h1 {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .hidden{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="animation anim-dark" data-aos="slide-effect-2">
+    <div class="wrapper animation-inner">
+      <div class="background overlay" style="background-image: url('/images/slide-1.jpg')"></div>
+
+      <div class="openAndClose" id="toggleButton">
+        <a href="/xtraInfo.html" style="background-color: #000;">
+          <i class="fas fa-bars vertical-icon" style="color: #fff;"></i></a>
+        <i class="fas fa-times" id="closeSM" style="display: none; color: black;"></i>
+      </div>
+
+      <div class="content-section d-flex justify-content-center align-items-center">
+        <div class="v-lines">
+          <div class="vline-1"></div>
+          <div class="vline-2"></div>
+          <div class="vline-3"></div>
+          <div class="vline-4"></div>
         </div>
 
-        <div class="content-section d-flex justify-content-center align-items-center">
-          <div class="v-lines">
-            <div class="vline-1"></div>
-            <div class="vline-2"></div>
-            <div class="vline-3"></div>
-            <div class="vline-4"></div>
+        <div class="container">
+          <div class="center-content text-light align-self-center">
+            <h1 class="display-3 sans-serif-font font-bold" id="heading-king">
+              <span id="idea-text"></span>
+              <span id="changing-text" class="changing-word"></span>
+            </h1>
+            <p class="lead my-2 my-sm-4 tagline" id="tagline">
+              Innovative | Imaginative | Creative
+            </p>
           </div>
-
-          <div class="container">
-            <div class="center-content text-light align-self-center">
-              <h1 class="display-3 sans-serif-font font-bold">
-                <span id="idea-text"></span>
-                <span id="changing-text" class="changing-word" style="display:none;"></span>
-                <span id="final-text" style="display:none;"></span>
-              </h1>
-              <p class="lead my-2 my-sm-4 tagline" style="opacity:0;">
-                Innovative | Imaginative | Creative
-              </p>
-            </div>
-          </div>
-          <button class="values-button">Journey</button>
         </div>
+        <button class="values-button" id="journeyButton">Journey</button>
+      </div>
 
-        <div class="sidebar sidebar-dark d-flex flex-column justify-content-end" data-aos="slide-left" data-aos-delay="3000">
-          <div class="altSolver">
-            <div class="menu-toggle-container">
-              <a id="menuToggle" href="/xtraInfo.html" style="font-size: 24px; cursor: pointer;">
-                <i class="fas fa-bars vertical-icon" style="color: white;"></i>
-                <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
-              </a>
-            </div>
-            <section class="social-links">
-              <div class="social-links-container">
-                <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
-                <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
-                <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
-                <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
-                <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
-              </div>
-            </section>
+      <div class="sidebar sidebar-dark d-flex flex-column justify-content-end" id="sidebar">
+        <div class="altSolver">
+          <div class="menu-toggle-container">
+            <a id="menuToggle" href="/xtraInfo.html" style="font-size: 24px; cursor: pointer;">
+              <i class="fas fa-bars vertical-icon" style="color: white;"></i>
+              <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
+            </a>
           </div>
+          <section class="social-links">
+            <div class="social-links-container">
+              <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
+              <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
+              <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
+              <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
+              <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
+            </div>
+          </section>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- ===Our Journey section==== -->
     <div id="our-journey" class="journey-section">
       <div class="journey-paragraph">
         <div class="journey-header">
@@ -224,184 +260,183 @@
       </div>
     </div>
 
-    <section class="values-section">
-      <div class="container">
-        <div class="values-content">
-          <h2 class="section-title">Our Core Values</h2>
-          
-          <div class="values-grid">
-            <div class="value-card">
-              <h3>Vision</h3>
-              <p>
-                To ensure every professional is skilled, disciplined, and
-                empowered to excel with integrity.
-              </p>
-            </div>
-
-            <div class="value-card">
-              <h3>Mission</h3>
-              <p>
-                To transform youthful hyper-creativity into impactful
-                productivity for a better future.
-              </p>
-            </div>
-
-            <div class="value-card">
-              <h3>Promise</h3>
-              <p>
-                To build respectable brands and gain the trust of our
-                community.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Mobile Footer (Hidden on Desktop) -->
-    <div class="mobile-social-footer">
+    <!-- <div class="mobile-social-footer">
       <ul class="mobile-social-links">
         <li><a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a></li>
-        <li><a href="http://x.com/Ideaiscapital" target="_blank">X</a></li>
         <li><a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a></li>
         <li><a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a></li>
         <li><a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a></li>
+        <li><a href="http://x.com/Ideaiscapital" target="_blank">X</a></li>
       </ul>
     </div>
-    
+
     <button id="scroll-to-top1">
       <i class="fas fa-arrow-up"></i>
-    </button>
+    </button> -->
 
-    <!-- JS Files -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/viewport.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/smoothscroll.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/countdown.js"></script>
+  <div class="mobile-social-footer mobile" id="mobile">
+    <ul class="mobile-social-links">
+      <li><a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a></li>
+      <li><a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a></li>
+      <li><a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a></li>
+      <li><a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a></li>
+      <li><a href="http://x.com/Ideaiscapital" target="_blank">X</a></li>
+    </ul>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Enhanced Typewriter Animation
-        const ideaText = document.getElementById('idea-text');
-        const changingText = document.getElementById('changing-text');
-        const finalText = document.getElementById('final-text');
-        const tagline = document.querySelector('.tagline');
-        
-        const words = ['CHANGE', 'ACTION', 'PURPOSE', 'SOLUTION'];
-        let currentWordIndex = 0;
-        let isTyping = true;
-        let charIndex = 0;
-        const typingSpeed = 100;
-        const deletingSpeed = 50;
-        const delayBetweenWords = 1000;
-        const initialPause = 800;
-        
-        // Start with empty elements
-        ideaText.textContent = '';
-        
-        // First, type out "IDEA IS" and keep it permanently
-        typeIdeaIs();
-        
-        function typeIdeaIs() {
-          const fullText = "IDEA IS";
-          if (charIndex < fullText.length) {
-            ideaText.textContent = fullText.substring(0, charIndex + 1);
-            charIndex++;
-            setTimeout(typeIdeaIs, typingSpeed);
-          } else {
-            // Add space after "IDEA IS" and start changing words after pause
-            ideaText.textContent = fullText + " ";
-            charIndex = 0;
-            setTimeout(() => {
-              changingText.style.display = 'inline';
-              startChangingWords();
-            }, initialPause);
-          }
-        }
-        
-        function startChangingWords() {
-          // Begin the cycle of changing words
-          typeCurrentWord();
-        }
-        
-        function typeCurrentWord() {
-          const currentWord = words[currentWordIndex];
-          
-          if (isTyping) {
-            // Typing phase
-            if (charIndex < currentWord.length) {
-              changingText.textContent = currentWord.substring(0, charIndex + 1);
-              charIndex++;
-              setTimeout(typeCurrentWord, typingSpeed);
-            } else {
-              // Switch to deleting after delay
-              isTyping = false;
-              setTimeout(typeCurrentWord, delayBetweenWords);
-            }
-          } else {
-            // Deleting phase
-            if (charIndex > 0) {
-              changingText.textContent = currentWord.substring(0, charIndex - 1);
-              charIndex--;
-              setTimeout(typeCurrentWord, deletingSpeed);
-            } else {
-              // Move to next word or show final text
-              isTyping = true;
-              currentWordIndex++;
-              
-              if (currentWordIndex < words.length) {
-                setTimeout(typeCurrentWord, 200);
-              } else {
-                // All changing words done, show "CAPITAL"
-                changingText.style.display = 'none';
-                typeCapital();
-              }
-            }
-          }
-        }
-        
-        function typeCapital() {
-          const fullText = "CAPITAL";
-          if (charIndex < fullText.length) {
-            finalText.style.display = 'inline';
-            finalText.textContent = fullText.substring(0, charIndex + 1);
-            charIndex++;
-            setTimeout(typeCapital, typingSpeed);
-          } else {
-            // Show tagline after final text is complete
-            setTimeout(() => {
+  <button id="scroll-to-top1"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- JS -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/tether.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/viewport.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/smoothscroll.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/countdown.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const ideaText = document.getElementById('idea-text');
+      const changingText = document.getElementById('changing-text');
+      const tagline = document.getElementById('tagline');
+      const journeyButton = document.getElementById('journeyButton');
+      const sidebar = document.getElementById('sidebar');
+  const headinoo = document.getElementById('heading-king');
+  const mobileItm = document.getElementById("mobile");
+      const changingWords = ['CHANGE', 'ACTION', 'PURPOSE', 'SOLUTION'];
+      let currentWordIndex = 0;
+
+      setTimeout(() => {
+        mobileItm.classList.add('hidden');
+        typeWriter(ideaText, 'IDEA IS ....', 100, () => {
+          setTimeout(() => {
+            ideaText.textContent = 'IDEA IS ';
+            cycleWords();
+          }, 1000);
+        });
+      }, 2000);
+
+      function cycleWords() {
+        if (currentWordIndex >= changingWords.length) {
+          setTimeout(() => {
+            changingText.classList.remove('changing-word');
+            changingText.classList.add('capital-word');
+
+            typeWriter(changingText, 'CAPITAL', 100, () => {
               tagline.style.opacity = '1';
-            }, 500);
-          }
+              tagline.classList.add('large');
+             headinoo.classList.add('hidden');
+              setTimeout(() => {
+                tagline.classList.remove('large');
+
+                // Wait for transition to finish (matches CSS)
+                setTimeout(() => {
+                  headinoo.classList.remove('hidden');
+                   mobileItm.classList.remove('hidden');
+                  ideaText.textContent = 'IDEA IS ';
+                  changingText.textContent = 'CAPITAL';
+                  changingText.classList.remove('changing-word');
+                  changingText.classList.add('capital-word');
+                  sidebar.classList.add('show');
+                  mobileItm.classList.add("show")
+                  journeyButton.classList.add('show');
+                }, 500);
+              }, 2000);
+            });
+          }, 500);
+          return;
         }
 
-        // Scroll to Our Journey section when button is clicked
-        document.querySelector(".values-button").addEventListener("click", function () {
-          document.getElementById("our-journey").scrollIntoView({ behavior: "smooth" });
+        const word = changingWords[currentWordIndex];
+        typeWriter(changingText, word, 100, () => {
+          setTimeout(() => {
+            deleteText(changingText, word.length, 50, () => {
+              currentWordIndex++;
+              setTimeout(cycleWords, 300);
+            });
+          }, 1000);
         });
+      }
 
-        // Scroll to top button functionality
-        const scrollToTopBtn = document.getElementById('scroll-to-top1');
-        window.addEventListener('scroll', function() {
-          if (window.pageYOffset > 300) {
-            scrollToTopBtn.classList.add('show');
+      function typeWriter(element, text, speed, callback) {
+        let i = 0;
+        element.innerHTML = '';
+        function type() {
+          if (i < text.length) {
+            element.textContent = text.substring(0, i + 1);
+            element.innerHTML += '<span class="cursor"></span>';
+            i++;
+            setTimeout(type, speed);
           } else {
-            scrollToTopBtn.classList.remove('show');
+            element.innerHTML = element.textContent;
+            if (callback) callback();
           }
-        });
-        
-        scrollToTopBtn.addEventListener('click', function() {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });
+        }
+        type();
+      }
+
+      function deleteText(element, length, speed, callback) {
+        let i = length;
+        function deleteChar() {
+          if (i > 0) {
+            element.textContent = element.textContent.substring(0, i - 1);
+            element.innerHTML += '<span class="cursor"></span>';
+            i--;
+            setTimeout(deleteChar, speed);
+          } else {
+            element.innerHTML = '';
+            if (callback) callback();
+          }
+        }
+        deleteChar();
+      }
+
+      document.querySelector(".values-button").addEventListener("click", function () {
+        document.getElementById("our-journey").scrollIntoView({ behavior: "smooth" });
       });
-    </script>
-  </body>
+
+      const scrollToTopBtn = document.getElementById('scroll-to-top1');
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      });
+
+      scrollToTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      if (window.innerWidth <= 767) {
+        const mobileFooter = document.querySelector('.mobile-social-footer');
+        if (mobileFooter) {
+          mobileFooter.style.display = 'block';
+          mobileFooter.style.opacity = '1';
+          mobileFooter.style.visibility = 'visible';
+        }
+      }
+
+      window.addEventListener('resize', function () {
+        const mobileFooter = document.querySelector('.mobile-social-footer');
+        if (window.innerWidth <= 767) {
+          if (mobileFooter) {
+            mobileFooter.style.display = 'block';
+            mobileFooter.style.opacity = '1';
+            mobileFooter.style.visibility = 'visible';
+          }
+          document.querySelector('.social-links-container').style.display = 'none';
+        } else {
+          if (mobileFooter) {
+            mobileFooter.style.display = 'none';
+          }
+          document.querySelector('.social-links-container').style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
 </html>
