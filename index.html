@@ -22,170 +22,230 @@
   <link rel="stylesheet" href="css/hero-mobile-icons.css" />
   <link rel="stylesheet" href="./css/cleanUp.css">
 
-  <style>
-    .vertical-icon {
-      display: inline-block;
-      transform: rotate(-90deg);
-      transform-origin: center;
-    }
+ <style>
+  * {
+    transition: all 0.6s ease-in-out;
+    scroll-behavior: smooth;
+  }
 
+  .vertical-icon {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+
+  .openAndClose {
+    display: none;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  @media (max-width: 767px) {
     .openAndClose {
-      display: none;
-    }
-
-    @media (max-width: 767px) {
-      .openAndClose {
-        display: block;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        cursor: pointer;
-      }
-
-      #menuToggle {
-        display: none;
-      }
-    }
-
-    .changing-word {
-      color: #007bff;
-    }
-
-    .capital-word {
-      color: #ffffff;
-    }
-
-    .tagline {
-      transition: all 0.5s ease-in-out;
-      opacity: 0;
-      font-size: 1.3rem;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .tagline.large {
-      font-size: 2.05rem;
-      margin-top: -20px;
-    }
-
-    .mobile-social-footer {
-      display: none;
+      display: block;
       position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #191919;
-      padding: 15px 0;
-      z-index: 999;
-      opacity: 1 !important;
-      visibility: visible !important;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      cursor: pointer;
     }
 
-    .mobile-social-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    #menuToggle {
+      display: none;
     }
+  }
 
-    .mobile-social-links li {
-      position: relative;
-      padding: 0 15px;
-    }
-
-    .mobile-social-links li:not(:last-child)::after {
-      content: "|";
-      position: absolute;
-      right: -2px;
-      color: #fff;
-    }
-
-    .mobile-social-links a {
-      color: #fff;
-      text-decoration: none;
-      font-family: "Oswald", sans-serif;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 5px 0;
-    }
-.mobile-social-links a:hover{
+  .changing-word {
     color: #007bff;
+    transition: color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
 
-}
-    @media (max-width: 767px) {
-      .mobile-social-footer {
-        display: block !important;
-      }
+  .capital-word {
+    color: #ffffff;
+    transition: color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
 
-      .social-links-container {
-        display: none;
-      }
-      .noShow{
-        display: none !important;
-      }
+  .tagline {
+    opacity: 0;
+    font-size: 1.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .tagline.large {
+    font-size: 2.05rem;
+    margin-top: -20px;
+  }
+
+  .mobile-social-footer {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #191919;
+    padding: 15px 0;
+    z-index: 999;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .mobile-social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-social-links li {
+    position: relative;
+    padding: 0 15px;
+  }
+
+  .mobile-social-links li:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -2px;
+    color: #fff;
+  }
+
+  .mobile-social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .mobile-social-links a:hover {
+    color: #007bff;
+  }
+
+  @media (max-width: 767px) {
+    .mobile-social-footer {
+      display: block !important;
     }
 
-    .cursor {
-      display: inline-block;
-      width: 3px;
-      height: 1em;
-      background-color: white;
-      animation: blink 1s infinite;
-      vertical-align: middle;
-      margin-left: 2px;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    .values-button {
-      opacity: 0;
-      transition: opacity 0.5s;
-    }
-
-    .values-button.show {
-      opacity: 1;
-    }
-
-    .sidebar {
-      opacity: 0;
-      transition: opacity 0.5s;
-    }
-    
-    .sidebar.show{
-      opacity: 1;
-    }
-
-    .tagline.large ~ .center-content h1 {
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-    }
-    .hidden{
+    .social-links-container {
       display: none;
     }
-    .blank-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+    .noShow {
+      display: none !important;
     }
-  </style>
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: white;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .values-button {
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .values-button.show {
+    opacity: 1;
+  }
+
+  .values-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  .sidebar {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .sidebar.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .tagline.large ~ .center-content h1 {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hidden {
+    display: none;
+    transition: color 0.3s ease-in-out;
+
+  }
+
+  .blank-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .blank-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #changing-text {
+    transition: color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .journey-section {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .journey-section.visible {
+    opacity: 1;
+  }
+
+  /* Entrance fade-in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 </head>
 
 <body>
@@ -340,7 +400,7 @@
             // After typing SOLUTION, wait 2 seconds
             setTimeout(() => {
               // Show blank screen
-              document.getElementById('blankScreen').style.display = 'flex';
+                      headinoo.classList.add('hidden');
               
               // After blank screen is shown, start typing "CAPITAL"
               setTimeout(() => {
@@ -352,6 +412,8 @@
                 
                 // Type "IDEA IS CAPITAL"
                 typeWriter(ideaText, 'IDEA IS ', 100, () => {
+                                        headinoo.classList.remove('hidden');
+
                   changingText.classList.remove('changing-word');
                   changingText.classList.add('capital-word');
                   typeWriter(changingText, 'CAPITAL', 100, () => {
