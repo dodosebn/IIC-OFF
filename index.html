@@ -325,7 +325,7 @@
 
       setTimeout(() => {
         mobileItm.classList.add('hidden');
-        typeWriter(ideaText, 'IDEA IS ....', 100, () => {
+        typeWriter(ideaText, 'IDEA IS ...', 100, () => {
           setTimeout(() => {
             ideaText.textContent = 'IDEA IS ';
             cycleWords();
@@ -334,47 +334,64 @@
       }, 2000);
 
       function cycleWords() {
-        if (currentWordIndex >= changingWords.length) {
-          setTimeout(() => {
-            changingText.classList.remove('changing-word');
-            changingText.classList.add('capital-word');
-
-            typeWriter(changingText, 'CAPITAL', 100, () => {
-                            setTimeout(() => {
-               if (window.innerWidth > 767) {
-                    tagline.style.opacity = '1';
-                                }
-                              }, 1000)
-              // Skip the large font size animation on mobile
-              if (window.innerWidth > 767) {
-                tagline.classList.add('large');
-              }
-              headinoo.classList.add('hidden');
+        if (currentWordIndex >= changingWords.length - 1) { // Stop at SOLUTION
+          const word = changingWords[currentWordIndex];
+          typeWriter(changingText, word, 100, () => {
+            // After typing SOLUTION, wait 2 seconds
+            setTimeout(() => {
+              // Show blank screen
+              document.getElementById('blankScreen').style.display = 'flex';
+              
+              // After blank screen is shown, start typing "CAPITAL"
               setTimeout(() => {
-                if (window.innerWidth > 767) {
-                  tagline.classList.remove('large');
-                }
-
-                // Wait for transition to finish (matches CSS)
-                setTimeout(() => {
-                               
-                  headinoo.classList.remove('hidden');
-                  mobileItm.classList.remove('hidden');
-                   if (window.innerWidth < 767) {
-                                                tagline.style.opacity = '1';
-
-                                }
-                  ideaText.textContent = 'IDEA IS ';
-                  changingText.textContent = 'CAPITAL';
+                document.getElementById('blankScreen').style.display = 'none';
+                
+                // Clear the text
+                ideaText.textContent = '';
+                changingText.textContent = '';
+                
+                // Type "IDEA IS CAPITAL"
+                typeWriter(ideaText, 'IDEA IS ', 100, () => {
                   changingText.classList.remove('changing-word');
                   changingText.classList.add('capital-word');
-                  sidebar.classList.add('show');
-                  mobileItm.classList.add("show")
-                  journeyButton.classList.add('show');
-                }, 500);
-              }, 1000);
-            });
-          }, 500);
+                  typeWriter(changingText, 'CAPITAL', 100, () => {
+                    // Animation complete
+                    setTimeout(() => {
+                      if (window.innerWidth > 767) {
+                        tagline.style.opacity = '1';
+                      }
+                      // Skip the large font size animation on mobile
+                      if (window.innerWidth > 767) {
+                        tagline.classList.add('large');
+                      }
+                      headinoo.classList.add('hidden');
+                      setTimeout(() => {
+                        if (window.innerWidth > 767) {
+                          tagline.classList.remove('large');
+                        }
+
+                        // Wait for transition to finish
+                        setTimeout(() => {
+                          headinoo.classList.remove('hidden');
+                          mobileItm.classList.remove('hidden');
+                          if (window.innerWidth < 767) {
+                            tagline.style.opacity = '1';
+                          }
+                          ideaText.textContent = 'IDEA IS ';
+                          changingText.textContent = 'CAPITAL';
+                          changingText.classList.remove('changing-word');
+                          changingText.classList.add('capital-word');
+                          sidebar.classList.add('show');
+                          mobileItm.classList.add("show")
+                          journeyButton.classList.add('show');
+                        }, 500);
+                      }, 1000);
+                    }, 500);
+                  });
+                });
+              }, 500); // Blank screen duration
+            }, 2000); // 2 seconds after "SOLUTION" is displayed
+          });
           return;
         }
 
@@ -464,7 +481,7 @@
           document.querySelector('.social-links-container').style.display = 'block';
         }
       });
-    };
+    }
   </script>
 </body>
 </html>
