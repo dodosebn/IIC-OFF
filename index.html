@@ -113,7 +113,10 @@
       letter-spacing: 1px;
       padding: 5px 0;
     }
+.mobile-social-links a:hover{
+    color: #007bff;
 
+}
     @media (max-width: 767px) {
       .mobile-social-footer {
         display: block !important;
@@ -121,6 +124,9 @@
 
       .social-links-container {
         display: none;
+      }
+      .noShow{
+        display: none !important;
       }
     }
 
@@ -167,15 +173,29 @@
     .hidden{
       display: none;
     }
+    .blank-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   </style>
 </head>
 
 <body>
+  <div class="blank-screen" id="blankScreen"></div>
+  
   <div class="animation anim-dark" data-aos="slide-effect-2">
     <div class="wrapper animation-inner">
       <div class="background overlay" style="background-image: url('/images/slide-1.jpg')"></div>
 
-      <div class="openAndClose" id="toggleButton">
+      <div class="openAndClose" id="toggleButton" id="mobile">
         <a href="/xtraInfo.html" style="background-color: #000;">
           <i class="fas fa-bars vertical-icon" style="color: #fff;"></i></a>
         <i class="fas fa-times" id="closeSM" style="display: none; color: black;"></i>
@@ -260,20 +280,6 @@
       </div>
     </div>
 
-    <!-- <div class="mobile-social-footer">
-      <ul class="mobile-social-links">
-        <li><a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a></li>
-        <li><a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a></li>
-        <li><a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a></li>
-        <li><a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a></li>
-        <li><a href="http://x.com/Ideaiscapital" target="_blank">X</a></li>
-      </ul>
-    </div>
-
-    <button id="scroll-to-top1">
-      <i class="fas fa-arrow-up"></i>
-    </button> -->
-
   <div class="mobile-social-footer mobile" id="mobile">
     <ul class="mobile-social-links">
       <li><a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a></li>
@@ -284,7 +290,7 @@
     </ul>
   </div>
 
-  <button id="scroll-to-top1"><i class="fas fa-arrow-up"></i></button>
+  <button id="scroll-to-top1" class="noShow"><i class="fas fa-arrow-up"></i></button>
 
   <!-- JS -->
   <script src="js/jquery-3.2.1.min.js"></script>
@@ -299,13 +305,21 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Show blank screen for 1.5 seconds
+      setTimeout(function() {
+        document.getElementById('blankScreen').style.display = 'none';
+        startAnimation();
+      }, 1500);
+    });
+
+    function startAnimation() {
       const ideaText = document.getElementById('idea-text');
       const changingText = document.getElementById('changing-text');
       const tagline = document.getElementById('tagline');
       const journeyButton = document.getElementById('journeyButton');
       const sidebar = document.getElementById('sidebar');
-  const headinoo = document.getElementById('heading-king');
-  const mobileItm = document.getElementById("mobile");
+      const headinoo = document.getElementById('heading-king');
+      const mobileItm = document.getElementById("mobile");
       const changingWords = ['CHANGE', 'ACTION', 'PURPOSE', 'SOLUTION'];
       let currentWordIndex = 0;
 
@@ -326,16 +340,30 @@
             changingText.classList.add('capital-word');
 
             typeWriter(changingText, 'CAPITAL', 100, () => {
-              tagline.style.opacity = '1';
-              tagline.classList.add('large');
-             headinoo.classList.add('hidden');
+                            setTimeout(() => {
+               if (window.innerWidth > 767) {
+                    tagline.style.opacity = '1';
+                                }
+                              }, 1000)
+              // Skip the large font size animation on mobile
+              if (window.innerWidth > 767) {
+                tagline.classList.add('large');
+              }
+              headinoo.classList.add('hidden');
               setTimeout(() => {
-                tagline.classList.remove('large');
+                if (window.innerWidth > 767) {
+                  tagline.classList.remove('large');
+                }
 
                 // Wait for transition to finish (matches CSS)
                 setTimeout(() => {
+                               
                   headinoo.classList.remove('hidden');
-                   mobileItm.classList.remove('hidden');
+                  mobileItm.classList.remove('hidden');
+                   if (window.innerWidth < 767) {
+                                                tagline.style.opacity = '1';
+
+                                }
                   ideaText.textContent = 'IDEA IS ';
                   changingText.textContent = 'CAPITAL';
                   changingText.classList.remove('changing-word');
@@ -344,7 +372,7 @@
                   mobileItm.classList.add("show")
                   journeyButton.classList.add('show');
                 }, 500);
-              }, 2000);
+              }, 1000);
             });
           }, 500);
           return;
@@ -436,7 +464,7 @@
           document.querySelector('.social-links-container').style.display = 'block';
         }
       });
-    });
+    };
   </script>
 </body>
 </html>

@@ -5,17 +5,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Idea Is Capital</title>
+
     <!-- Meta Share -->
     <meta property="og:title" content="Idea Is Capital" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/bg-one.jpg" />
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Dosis|Oswald:300"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../filosofi/assets/css/style.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -29,22 +30,19 @@
     <link rel="stylesheet" href="css/brand.css" />
     <link rel="stylesheet" href="css/hero-mobile-icons.css" />
     <link rel="stylesheet" href="./css/cleanUp.css">
-    
+
     <style>
-      /* Vertical icon rotation - will persist through toggles */
       .vertical-icon {
         display: inline-block;
         transform: rotate(-90deg);
         transform-origin: center;
       }
-      
-      /* Hide mobile toggle on desktop */
+
       .openAndClose {
         display: none;
       }
 
       @media (max-width: 767px) {
-        /* Show mobile toggle button */
         .openAndClose {
           display: block;
           position: fixed;
@@ -54,26 +52,46 @@
           cursor: pointer;
         }
 
-        /* Hide desktop toggle in mobile */
         #menuToggle {
           display: none;
         }
       }
-    </style>
-    <style>
+
+      .changing-word {
+        color: #007bff; /* Blue color for changing words */
+      }
+
+      .capital-word {
+        color: #ffffff; /* White color for CAPITAL */
+      }
+
+      .tagline {
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        font-size: 1.3rem;
+        white-space: nowrap; /* Keep text in one line */
+        overflow: hidden; /* Hide overflow */
+      }
+
+      .tagline.large {
+        font-size: 2.05rem; /* Reduced from 4.5rem to keep in one line */
+        margin-top: -20px; /* Adjust position to compensate for larger text */
+      }
+
       /* Mobile Footer Styles */
       .mobile-social-footer {
-        display: none; /* Hidden by default */
+        display: none;
         position: fixed;
         bottom: 0;
         left: 0;
-      /* margin-top: 2rem; */
         width: 100%;
         background-color: #191919;
         padding: 15px 0;
         z-index: 999;
+        opacity: 1 !important;
+        visibility: visible !important;
       }
-      
+
       .mobile-social-links {
         display: flex;
         justify-content: center;
@@ -83,19 +101,19 @@
         padding: 0;
         margin: 0;
       }
-      
+
       .mobile-social-links li {
         position: relative;
         padding: 0 15px;
       }
-      
+
       .mobile-social-links li:not(:last-child)::after {
-        content: "|"; 
+        content: "|";
         position: absolute;
         right: -2px;
         color: #fff;
       }
-      
+
       .mobile-social-links a {
         color: #fff;
         text-decoration: none;
@@ -105,23 +123,65 @@
         letter-spacing: 1px;
         padding: 5px 0;
       }
-      
-      /* Show only on mobile */
+
       @media (max-width: 767px) {
         .mobile-social-footer {
-          display: block;
+          display: block !important;
         }
-      }
-      
-      /* Hide desktop social links container on mobile */
-      @media (max-width: 767px) {
+
         .social-links-container {
           display: none;
         }
       }
-    </style>
 
+      /* Animation styles */
+      .cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1em;
+        background-color: white;
+        animation: blink 1s infinite;
+        vertical-align: middle;
+        margin-left: 2px;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      .values-button {
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .values-button.show {
+        opacity: 1;
+      }
+
+      .sidebar {
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .sidebar.show {
+        opacity: 1;
+      }
+      
+      /* Hide main title when tagline is large */
+      .tagline.large ~ .center-content h1 {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .hidden{
+        display: none;
+      }
+    </style>
   </head>
+
   <body>
     <!-- -------Hero section------ -->
     <div class="animation anim-dark" data-aos="slide-effect-2">
@@ -130,9 +190,10 @@
           class="background overlay"
           style="background-image: url('/images/slide-1.jpg')"
         ></div>
-    
+
         <div class="openAndClose" id="toggleButton">
-          <i class="fas fa-bars vertical-icon" id="toggleSM" style="color: #fff;"></i>
+          <a href="/xtraInfo.html" style="background-color: #000;">
+            <i class="fas fa-bars vertical-icon" style="color: #fff;"></i></a>
           <i class="fas fa-times" id="closeSM" style="display: none; color: black;"></i>
         </div>
 
@@ -146,36 +207,36 @@
 
           <div class="container">
             <div class="center-content text-light align-self-center">
-              <h1 class="display-3 sans-serif-font font-bold" data-aos="fade" data-aos-delay="1800">
-                IDEA IS CAPITAL
+              <h1 class="display-3 sans-serif-font font-bold" id="heading-king">
+                <span id="idea-text"></span>
+                <span id="changing-text" class="changing-word"></span>
               </h1>
-              <p class="lead my-2 my-sm-4" data-aos="fade" data-aos-delay="2500">
+              <p class="lead my-2 my-sm-4 tagline" id="tagline">
                 Innovative | Imaginative | Creative
               </p>
             </div>
           </div>
-          <button class="values-button">Journey</button>
+          <button class="values-button" id="journeyButton">Journey</button>
         </div>
 
-        <div class="sidebar sidebar-dark d-flex flex-column justify-content-end" data-aos="slide-left" data-aos-delay="3000">
-          <div class="hamburger-menu mb-auto"></div>
-          <section class="social-links">
+        <div class="sidebar sidebar-dark d-flex flex-column justify-content-end" id="sidebar">
+          <div class="altSolver">
             <div class="menu-toggle-container">
-              <a id="menuToggle" style="font-size: 24px; cursor: pointer;">
-                <i class="fas fa-bars vertical-icon" id="hamburgerIcon" style="color: white;"></i>
+              <a id="menuToggle" href="/xtraInfo.html" style="font-size: 24px; cursor: pointer;">
+                <i class="fas fa-bars vertical-icon" style="color: white;"></i>
                 <i class="fas fa-times" id="cancelIcon" style="display: none; color: #000;"></i>
               </a>
             </div>
-           
-            <div class="social-links-container">
-              <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
-              <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
-              <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
-              <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
-              <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
-              <a href="javascript:void(0);" id="openFormSidebar">Connect</a>
-            </div>
-          </section>
+            <section class="social-links">
+              <div class="social-links-container">
+                <a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a>
+                <a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a>
+                <a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a>
+                <a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a>
+                <a href="http://x.com/Ideaiscapital" target="_blank">X</a>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </div>
@@ -214,476 +275,186 @@
           rebuilding it together. We can develop a future that embodies dignity.
         </p>
       </div>
-      <!-- <button class="values-button" id="journey-button">Journey</button> -->
     </div>
-    
-    <!-- <div id="my-journey" class="journey-section">
-      <div class="journey-paragraph">
-        <div class="journey-header">
-          <h2 class="values-title">JOURNEY</h2>
-        </div>
-        <p><b>Are you ready?</b></p>
-        <p>
-          Are you ready to build? Are you ready for solutions? Are you ready to
-          change your behavior? Are you ready to be honorable? Are you ready to
-          let go of your ego? Are you ready to create a community? Are you ready
-          to stop blaming others for your difficulties? Are you ready to stop
-          expecting solutions from the outside? Are you ready to sacrifice for a
-          better future? Let's get to it; we have no time to waste. We've been
-          thinking about what's next for us, our continent, our role in the
-          world, and how the world perceives Africa. We've been thinking about
-          solutions and the obstacles that hold us back. We've been thinking
-          about the changes that need to happen to build a better society for
-          future generations. Yes, we've been thinking a lot. It is said that
-          the future belongs to those who prepare for it today. Are you ready?
-        </p>
-        <p><b>New Mindset.</b></p>
-        <p>
-          Think big, think ahead, think globally. Great achievements stem from
-          great ideas. Africa requires bold, innovative concepts and a
-          generation willing to take risks to bring them to life. Learning from
-          past mistakes and adopting a systematic approach is essential. Only
-          through this method can we attain remarkable outcomes. We need
-          collaboration to create a better future. At Idea Is Capital, we are
-          passionate about doing things correctly. Our values and vision focus
-          on solutions. We are committed to rewriting the African narrative and
-          rebuilding it together. We can develop a future that embodies dignity.
-        </p>
-      </div>
-    </div> -->
 
-    <section class="values-section">
-      <div class="container">
-        <div class="values-content">
-          <h2 class="section-title">Our Core Values</h2>
-          
-          <div class="values-grid">
-            <div class="value-card">
-              <h3>Vision</h3>
-              <p>
-                To ensure every professional is skilled, disciplined, and
-                empowered to excel with integrity.
-              </p>
-            </div>
-
-            <div class="value-card">
-              <h3>Mission</h3>
-              <p>
-                To transform youthful hyper-creativity into impactful
-                productivity for a better future.
-              </p>
-            </div>
-
-            <div class="value-card">
-              <h3>Promise</h3>
-              <p>
-                To build respectable brands and gain the trust of our
-                community.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Mobile Footer (Hidden on Desktop) -->
+    <!-- Mobile Footer -->
     <div class="mobile-social-footer">
       <ul class="mobile-social-links">
         <li><a href="http://www.facebook.com/ideaiscapital" target="_blank">Facebook</a></li>
-        <li><a href="http://x.com/Ideaiscapital" target="_blank">X</a></li>
         <li><a href="http://instagram.com/ideaiscapital" target="_blank">Instagram</a></li>
         <li><a href="http://linkedin.com/company/ideaiscapital/" target="_blank">Linkedin</a></li>
         <li><a href="https://www.tiktok.com/@ideaiscapital" target="_blank">Tiktok</a></li>
-        <li><a href="javascript:void(0);" id="openFormMobile">Connect</a></li>
+        <li><a href="http://x.com/Ideaiscapital" target="_blank">X</a></li>
       </ul>
     </div>
-    <!-- Modern Connect Form Modal -->
-    <div class="contact-form-modal" id="contactFormModal" style="overflow-y: scroll">
-      <div class="contact-form-container">
-        <span class="close-form-btn" id="closeForm">&times;</span>
-        <h3>Connect With Us</h3>
-        <form>
-          <div>
-            <span>Full Name</span>
-            <input type="text" placeholder="Full Name" required />
-          </div>
-          <div>
-            <span>Email</span>
-            <input type="email" placeholder="Email Address" required />
-          </div>
-          <section style="display: flex; flex-direction: row; gap: 1rem">
-            <div>
-              <span>Phone Number</span>
-              <input type="text" placeholder="Mobile" required />
-            </div>
-            <div>
-              <span>City</span>
-              <input type="text" placeholder="City" required />
-            </div>
-          </section>
-          <section style="display: flex; @media (min-width: 1000px) {
-            flex-direction: row; gap: 1rem;
-          } flex-direction: column;">
-            <div style="flex: 1">
-              <span>Age</span><br />
-              <input type="number" placeholder="Age" required style="width: 100%; padding: 0.6rem;" />
-            </div>
-            <div style="flex: 1">
-              <span>Select Field</span><br />
-              <select required style="width: 100%;">
-                <option value="">Select your interest</option>
-                <option value="writing">Writing</option>
-                <option value="acting">Acting</option>
-              </select>
-            </div>
-          </section>
 
-          <div>
-            <span>Your Message</span>
-            <textarea placeholder="Your message..." rows="4" required></textarea>
-          </div>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </div>
-    
     <button id="scroll-to-top1">
       <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JS Files -->
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/tether.min.js"></script>
-    <!-- Bootstrap JS -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins JS -->
     <script src="js/slick.min.js"></script>
     <script src="js/viewport.min.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/smoothscroll.min.js"></script>
-    <!-- Main JS -->
     <script src="js/script.js"></script>
-    <!-- -----count down function----------- -->
     <script src="js/countdown.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Scroll to Our Journey section when Our Journey button is clicked
-        document
-          .querySelector(".values-button")
-          .addEventListener("click", function () {
-            document
-              .getElementById("our-journey")
-              .scrollIntoView({ behavior: "smooth" });
+        const ideaText = document.getElementById('idea-text');
+        const changingText = document.getElementById('changing-text');
+        const tagline = document.getElementById('tagline');
+        const journeyButton = document.getElementById('journeyButton');
+        const sidebar = document.getElementById('sidebar');
+        const centerContent = document.querySelector('.center-content');
+        const headino = docment.getElementById('heading-king');
+        const changingWords = ['CHANGE', 'ACTION', 'PURPOSE', 'SOLUTION'];
+        let currentWordIndex = 0;
+        
+        // Initial delay before any animation starts
+        setTimeout(() => {
+          typeWriter(ideaText, 'IDEA IS ....', 100, () => {
+            setTimeout(() => {
+              // Remove the dots
+              ideaText.textContent = 'IDEA IS ';
+              
+              // Start cycling through words
+              cycleWords();
+            }, 1000);
           });
+        }, 2000);
+        
+        function cycleWords() {
+          if (currentWordIndex >= changingWords.length) {
+            // All words cycled, now add CAPITAL
+            setTimeout(() => {
+              changingText.classList.remove('changing-word');
+              changingText.classList.add('capital-word');
+              
+              typeWriter(changingText, 'CAPITAL', 100, () => {
+                // Show full tagline in large size
+                tagline.style.opacity = '1';
+                tagline.classList.add('large');
+                headino.classList.add('hidden')
+                // After 2 seconds, shrink to normal size and show final elements
+                setTimeout(() => {
+                  tagline.classList.remove('large');
+                                  headino.classList.remove('hidden')
 
-        // Scroll to Brand section when Explore button is clicked
-        document
-          .querySelector(".explore-button")
-          .addEventListener("click", function () {
-            document
-              .getElementById("brand-section")
-              .scrollIntoView({ behavior: "smooth" });
+                  // Show final elements
+                  ideaText.textContent = 'IDEA IS ';
+                  changingText.textContent = 'CAPITAL';
+                  changingText.classList.remove('changing-word');
+                  changingText.classList.add('capital-word');
+                  sidebar.classList.add('show');
+                  journeyButton.classList.add('show');
+                }, 2000);
+              });
+            }, 500);
+            return;
+          }
+          
+          const word = changingWords[currentWordIndex];
+          typeWriter(changingText, word, 100, () => {
+            setTimeout(() => {
+              // Delete the word with backspace effect
+              deleteText(changingText, word.length, 50, () => {
+                currentWordIndex++;
+                setTimeout(cycleWords, 300);
+              });
+            }, 1000);
           });
-      });
-    </script>
-
-    <!-- SCROLL TO THE TOP========== -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const scrollTopBtn = document.getElementById("scroll-to-top");
-        const sections = [
-          document.querySelector(".animation"),
-          document.getElementById("our-journey"),
-        ];
-
-        function getCurrentSectionIndex() {
-          let currentIndex = 0;
-          let scrollPosition = window.scrollY + window.innerHeight / 2;
-
-          for (let i = 0; i < sections.length; i++) {
-            let sectionTop = sections[i].offsetTop;
-            let sectionBottom = sectionTop + sections[i].offsetHeight;
-
-            if (
-              scrollPosition >= sectionTop &&
-              scrollPosition < sectionBottom
-            ) {
-              currentIndex = i;
-              break;
+        }
+        
+        function typeWriter(element, text, speed, callback) {
+          let i = 0;
+          element.innerHTML = '';
+          
+          function type() {
+            if (i < text.length) {
+              element.textContent = text.substring(0, i + 1);
+              element.innerHTML += '<span class="cursor"></span>';
+              i++;
+              setTimeout(type, speed);
+            } else {
+              // Remove cursor when done
+              element.innerHTML = element.textContent;
+              if (callback) callback();
             }
           }
-          return currentIndex;
-        
-        }
-
-        function handleScroll() {
-          let index = getCurrentSectionIndex();
-          scrollTopBtn.style.display = index > 0 ? "flex" : "none";
-          scrollTopBtn.dataset.index = index;
-        }
-
-        scrollTopBtn.addEventListener("click", function () {
-          let index = parseInt(scrollTopBtn.dataset.index);
-          if (index > 0) {
-            sections[index - 1].scrollIntoView({ behavior: "smooth" });
-          }
-        });
-
-        window.addEventListener("scroll", handleScroll);
-        
-      });
-      
-    </script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          const scrollToTopBtn = document.getElementById('scroll-to-top1');
           
-          // Show/hide button based on scroll position
-          window.addEventListener('scroll', function() {
-              if (window.pageYOffset > 300) {
-                  scrollToTopBtn.classList.add('show');
-              } else {
-                  scrollToTopBtn.classList.remove('show');
-              }
-          });
+          type();
+        }
+        
+        function deleteText(element, length, speed, callback) {
+          let i = length;
           
-          // Scroll to top when clicked
-          scrollToTopBtn.addEventListener('click', function() {
-              window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth'
-              });
-          });
-      });
-    </script>
-
-    <!-- HEADER SCRIPT................. -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        let scrolled = false;
-        let dropdownOpen = false;
-        let language = localStorage.getItem("language") || "en";
-
-        function handleScroll() {
-          const header = document.querySelector(".header");
-          if (window.scrollY > 50) {
-            header.classList.add("scrolled");
-          } else {
-            header.classList.remove("scrolled");
+          function deleteChar() {
+            if (i > 0) {
+              element.textContent = element.textContent.substring(0, i - 1);
+              element.innerHTML += '<span class="cursor"></span>';
+              i--;
+              setTimeout(deleteChar, speed);
+            } else {
+              // Remove cursor when done
+              element.innerHTML = '';
+              if (callback) callback();
+            }
           }
-        }
-
-        function toggleDropdown() {
-          dropdownOpen = !dropdownOpen;
-          document.querySelector(".dropdown-menu").style.display = dropdownOpen
-            ? "block"
-            : "none";
-        }
-
-        function changeLanguage(lang) {
-          language = lang;
-          localStorage.setItem("language", lang);
-          document.getElementById("language-btn").innerText =
-            lang === "en" ? "EN" : "FR";
-          document.querySelector(".dropdown-menu").style.display = "none";
-          dropdownOpen = false;
-        }
-
-        window.addEventListener("scroll", handleScroll);
-
-        document
-          .getElementById("language-btn")
-          .addEventListener("click", toggleDropdown);
-        document
-          .getElementById("lang-en")
-          .addEventListener("click", function () {
-            changeLanguage("en");
-          });
-        document
-          .getElementById("lang-fr")
-          .addEventListener("click", function () {
-            changeLanguage("fr");
-          });
-
-        document.getElementById("language-btn").innerText =
-          language === "en" ? "EN" : "FR";
-      });
-    </script>
-
-    <!-- Improved Mobile Toggle Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const toggleButton = document.getElementById("toggleButton");
-        const toggleIcon = document.getElementById("toggleSM");
-        const socialIcons = document.getElementById("socialIcons");
-        
-        // Check if mobile device
-        function isMobile() {
-          return window.innerWidth <= 768;
-        }
-        
-        // Toggle function
-        function toggleMenu() {
-          socialIcons.classList.toggle("show-icons");
           
-          // Change icon
-          if (socialIcons.classList.contains("show-icons")) {
-            toggleIcon.classList.remove("fa-bars");
-            toggleIcon.classList.add("fa-times");
-          } else {
-            toggleIcon.classList.remove("fa-times");
-            toggleIcon.classList.add("fa-bars");
-          }
+          deleteChar();
         }
-        
-        // Initialize based on screen size
-        function initMenu() {
-          if (isMobile()) {
-            // Hide icons on mobile initially
-            socialIcons.classList.remove("show-icons");
-            toggleIcon.classList.remove("fa-times");
-            toggleIcon.classList.add("fa-bars");
+
+        // Existing functionality
+        document.querySelector(".values-button").addEventListener("click", function () {
+          document.getElementById("our-journey").scrollIntoView({ behavior: "smooth" });
+        });
+
+        const scrollToTopBtn = document.getElementById('scroll-to-top1');
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
           } else {
-            // Show icons on desktop
-            socialIcons.classList.add("show-icons");
-          }
-        }
-        
-        // Set up event listener
-        toggleButton.addEventListener("click", function (event) {
-          event.preventDefault();
-          toggleMenu();
-        });
-        
-        // Handle window resize
-        window.addEventListener("resize", function() {
-          initMenu();
-        });
-        
-        // Initialize on load
-        initMenu();
-      });
-    </script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById('journey-button').addEventListener('click', function() {
-          document.getElementById('my-journey').scrollIntoView({
-            behavior: 'smooth'
-          });
-        });
-      });
-    </script>
-    
-    <!-- Contact Form Script -->
-    <script>
-      const openFormBtn = document.getElementById("openFormSidebar");
-      const openFormMobile = document.getElementById("openForm");
-      const formModal = document.getElementById("contactFormModal");
-      const closeFormBtn = document.getElementById("closeForm");
-
-      openFormBtn.addEventListener("click", () => {
-        formModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      });
-      
-      openFormMobile.addEventListener("click", () => {
-        formModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      });
-
-      closeFormBtn.addEventListener("click", () => {
-        formModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      });
-
-      window.addEventListener("click", (e) => {
-        if (e.target === formModal) {
-          formModal.style.display = "none";
-          document.body.style.overflow = "auto";
-        }
-      });
-    </script>
-    
-    <script>
-      // Desktop menu toggle functionality - Fixed version
-      document.addEventListener("DOMContentLoaded", function() {
-        const menuToggle = document.getElementById('menuToggle');
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const cancelIcon = document.getElementById('cancelIcon');
-        const socialLinksContainer = document.querySelector('.social-links-container');
-        const body = document.body;
-
-        menuToggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = hamburgerIcon.style.display === 'none';
-          
-          if (isOpen) {
-            // Close menu
-            socialLinksContainer.classList.remove('show');
-            body.classList.remove('white-overlay');
-            hamburgerIcon.style.display = 'inline-block'; // Keep as inline-block to maintain rotation
-            cancelIcon.style.display = 'none';
-          } else {
-            // Open menu
-            socialLinksContainer.classList.add('show');
-            body.classList.add('white-overlay');
-            hamburgerIcon.style.display = 'none';
-            cancelIcon.style.display = 'inline-block';
+            scrollToTopBtn.classList.remove('show');
           }
         });
-      });
 
-      // Mobile menu toggle functionality
-      document.addEventListener("DOMContentLoaded", function() {
-        const toggleButton = document.getElementById('toggleButton');
-        const toggleSM = document.getElementById('toggleSM');
-        const closeSM = document.getElementById('closeSM');
-        const sidebar = document.querySelector('.sidebar');
-        const body = document.body;
+        scrollToTopBtn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-        toggleButton.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = sidebar.classList.contains('active');
-          
-          if (isOpen) {
-            sidebar.classList.remove('active');
-            body.classList.remove('white-overlay');
-            toggleSM.style.display = 'inline-block';
-            closeSM.style.display = 'none';
+        // Force mobile footer to stay visible
+        if (window.innerWidth <= 767) {
+          const mobileFooter = document.querySelector('.mobile-social-footer');
+          if (mobileFooter) {
+            mobileFooter.style.display = 'block';
+            mobileFooter.style.opacity = '1';
+            mobileFooter.style.visibility = 'visible';
+          }
+        }
+
+        // Update on window resize
+        window.addEventListener('resize', function() {
+          const mobileFooter = document.querySelector('.mobile-social-footer');
+          if (window.innerWidth <= 767) {
+            if (mobileFooter) {
+              mobileFooter.style.display = 'block';
+              mobileFooter.style.opacity = '1';
+              mobileFooter.style.visibility = 'visible';
+            }
+            document.querySelector('.social-links-container').style.display = 'none';
           } else {
-            sidebar.classList.add('active');
-            body.classList.add('white-overlay');
-            toggleSM.style.display = 'none';
-            closeSM.style.display = 'inline';
+            if (mobileFooter) {
+              mobileFooter.style.display = 'none';
+            }
+            document.querySelector('.social-links-container').style.display = 'block';
           }
         });
       });
     </script>
-    <script>
-      // Make sure the mobile footer connect button works
-      document.addEventListener("DOMContentLoaded", function() {
-        const openFormMobile = document.getElementById("openFormMobile");
-        const formModal = document.getElementById("contactFormModal");
-        const closeFormBtn = document.getElementById("closeForm");
-        
-        if (openFormMobile) {
-          openFormMobile.addEventListener("click", () => {
-            formModal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-          });
-        }
-        
-        if (closeFormBtn) {
-          closeFormBtn.addEventListener("click", () => {
-            formModal.style.display = "none";
-            document.body.style.overflow = "auto";
-          });
-        }
-      });
-    </script>
-
   </body>
 </html>
