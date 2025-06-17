@@ -225,13 +225,9 @@
   }
 
   .journey-section {
-    opacity: 0;
-    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  .journey-section.visible {
-    opacity: 1;
-  }
+  opacity: 1;
+  visibility: visible;
+}
 
   /* Entrance fade-in animation */
   .fade-in {
@@ -363,187 +359,179 @@
   <script src="js/script.js"></script>
   <script src="js/countdown.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Show blank screen for 1.5 seconds
-      setTimeout(function() {
-        document.getElementById('blankScreen').style.display = 'none';
-        startAnimation();
-      }, 1500);
-    });
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Show blank screen for 1.5 seconds
+    setTimeout(function () {
+      document.getElementById('blankScreen').style.display = 'none';
+      startAnimation();
+    }, 1500);
+  });
 
-    function startAnimation() {
-      const ideaText = document.getElementById('idea-text');
-      const changingText = document.getElementById('changing-text');
-      const tagline = document.getElementById('tagline');
-      const journeyButton = document.getElementById('journeyButton');
-      const sidebar = document.getElementById('sidebar');
-      const headinoo = document.getElementById('heading-king');
-      const mobileItm = document.getElementById("mobile");
-      const changingWords = ['CHANGE', 'ACTION', 'PURPOSE', 'SOLUTION'];
-      let currentWordIndex = 0;
+  function startAnimation() {
+    const ideaText = document.getElementById('idea-text');
+    const changingText = document.getElementById('changing-text');
+    const tagline = document.getElementById('tagline');
+    const journeyButton = document.getElementById('journeyButton');
+    const sidebar = document.getElementById('sidebar');
+    const headinoo = document.getElementById('heading-king');
+    const mobileItm = document.getElementById("mobile");
+    const changingWords = ['CHANGE', 'ACTION', 'PURPOSE', 'SOLUTION'];
+    let currentWordIndex = 0;
 
-      setTimeout(() => {
-        mobileItm.classList.add('hidden');
-        typeWriter(ideaText, 'IDEA IS ...', 100, () => {
-          setTimeout(() => {
-            ideaText.textContent = 'IDEA IS ';
-            cycleWords();
-          }, 1000);
-        });
-      }, 2000);
+    setTimeout(() => {
+      mobileItm.classList.add('hidden');
+      typeWriter(ideaText, 'IDEA IS ...', 100, () => {
+        setTimeout(() => {
+          ideaText.textContent = 'IDEA IS ';
+          cycleWords();
+        }, 1000);
+      });
+    }, 2000);
 
-      function cycleWords() {
-        if (currentWordIndex >= changingWords.length - 1) { // Stop at SOLUTION
-          const word = changingWords[currentWordIndex];
-          typeWriter(changingText, word, 100, () => {
-            // After typing SOLUTION, wait 2 seconds
-            setTimeout(() => {
-              // Show blank screen
-                      headinoo.classList.add('hidden');
-              
-              // After blank screen is shown, start typing "CAPITAL"
-              setTimeout(() => {
-                document.getElementById('blankScreen').style.display = 'none';
-                
-                // Clear the text
-                ideaText.textContent = '';
-                changingText.textContent = '';
-                
-                // Type "IDEA IS CAPITAL"
-                typeWriter(ideaText, 'IDEA IS ', 100, () => {
-                                        headinoo.classList.remove('hidden');
-
-                  changingText.classList.remove('changing-word');
-                  changingText.classList.add('capital-word');
-                  typeWriter(changingText, 'CAPITAL', 100, () => {
-                    // Animation complete
-                    setTimeout(() => {
-                      if (window.innerWidth > 767) {
-                        tagline.style.opacity = '1';
-                      }
-                      // Skip the large font size animation on mobile
-                      if (window.innerWidth > 767) {
-                        tagline.classList.add('large');
-                      }
-                      headinoo.classList.add('hidden');
-                      setTimeout(() => {
-                        if (window.innerWidth > 767) {
-                          tagline.classList.remove('large');
-                        }
-
-                        // Wait for transition to finish
-                        setTimeout(() => {
-                          headinoo.classList.remove('hidden');
-                          mobileItm.classList.remove('hidden');
-                          if (window.innerWidth < 767) {
-                            tagline.style.opacity = '1';
-                          }
-                          ideaText.textContent = 'IDEA IS ';
-                          changingText.textContent = 'CAPITAL';
-                          changingText.classList.remove('changing-word');
-                          changingText.classList.add('capital-word');
-                          sidebar.classList.add('show');
-                          mobileItm.classList.add("show")
-                          journeyButton.classList.add('show');
-                        }, 500);
-                      }, 1000);
-                    }, 500);
-                  });
-                });
-              }, 500); // Blank screen duration
-            }, 2000); // 2 seconds after "SOLUTION" is displayed
-          });
-          return;
-        }
-
+    function cycleWords() {
+      if (currentWordIndex >= changingWords.length - 1) {
         const word = changingWords[currentWordIndex];
         typeWriter(changingText, word, 100, () => {
           setTimeout(() => {
-            deleteText(changingText, word.length, 50, () => {
-              currentWordIndex++;
-              setTimeout(cycleWords, 300);
-            });
-          }, 1000);
+            headinoo.classList.add('hidden');
+
+            setTimeout(() => {
+              document.getElementById('blankScreen').style.display = 'none';
+
+              ideaText.textContent = '';
+              changingText.textContent = '';
+
+              typeWriter(ideaText, 'IDEA IS ', 100, () => {
+                headinoo.classList.remove('hidden');
+                changingText.classList.remove('changing-word');
+                changingText.classList.add('capital-word');
+                typeWriter(changingText, 'CAPITAL', 100, () => {
+                  setTimeout(() => {
+                    if (window.innerWidth > 767) {
+                      tagline.style.opacity = '1';
+                      tagline.classList.add('large');
+                    }
+                    headinoo.classList.add('hidden');
+                    setTimeout(() => {
+                      if (window.innerWidth > 767) {
+                        tagline.classList.remove('large');
+                      }
+
+                      setTimeout(() => {
+                        headinoo.classList.remove('hidden');
+                        mobileItm.classList.remove('hidden');
+                        if (window.innerWidth < 767) {
+                          tagline.style.opacity = '1';
+                        }
+                        ideaText.textContent = 'IDEA IS ';
+                        changingText.textContent = 'CAPITAL';
+                        changingText.classList.remove('changing-word');
+                        changingText.classList.add('capital-word');
+                        sidebar.classList.add('show');
+                        mobileItm.classList.add("show");
+                        journeyButton.classList.add('show');
+                      }, 500);
+                    }, 1000);
+                  }, 500);
+                });
+              });
+            }, 2000);
+          });
+          return;
         });
       }
 
-      function typeWriter(element, text, speed, callback) {
-        let i = 0;
-        element.innerHTML = '';
-        function type() {
-          if (i < text.length) {
-            element.textContent = text.substring(0, i + 1);
-            element.innerHTML += '<span class="cursor"></span>';
-            i++;
-            setTimeout(type, speed);
-          } else {
-            element.innerHTML = element.textContent;
-            if (callback) callback();
-          }
-        }
-        type();
-      }
-
-      function deleteText(element, length, speed, callback) {
-        let i = length;
-        function deleteChar() {
-          if (i > 0) {
-            element.textContent = element.textContent.substring(0, i - 1);
-            element.innerHTML += '<span class="cursor"></span>';
-            i--;
-            setTimeout(deleteChar, speed);
-          } else {
-            element.innerHTML = '';
-            if (callback) callback();
-          }
-        }
-        deleteChar();
-      }
-
-      document.querySelector(".values-button").addEventListener("click", function () {
-        document.getElementById("our-journey").scrollIntoView({ behavior: "smooth" });
+      const word = changingWords[currentWordIndex];
+      typeWriter(changingText, word, 100, () => {
+        setTimeout(() => {
+          deleteText(changingText, word.length, 50, () => {
+            currentWordIndex++;
+            setTimeout(cycleWords, 300);
+          });
+        }, 1000);
       });
+    }
 
-      const scrollToTopBtn = document.getElementById('scroll-to-top1');
-      window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 300) {
-          scrollToTopBtn.classList.add('show');
+    function typeWriter(element, text, speed, callback) {
+      let i = 0;
+      element.innerHTML = '';
+      function type() {
+        if (i < text.length) {
+          element.textContent = text.substring(0, i + 1);
+          element.innerHTML += '<span class="cursor"></span>';
+          i++;
+          setTimeout(type, speed);
         } else {
-          scrollToTopBtn.classList.remove('show');
+          element.innerHTML = element.textContent;
+          if (callback) callback();
         }
-      });
+      }
+      type();
+    }
 
-      scrollToTopBtn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+    function deleteText(element, length, speed, callback) {
+      let i = length;
+      function deleteChar() {
+        if (i > 0) {
+          element.textContent = element.textContent.substring(0, i - 1);
+          element.innerHTML += '<span class="cursor"></span>';
+          i--;
+          setTimeout(deleteChar, speed);
+        } else {
+          element.innerHTML = '';
+          if (callback) callback();
+        }
+      }
+      deleteChar();
+    }
 
+    document.querySelector(".values-button").addEventListener("click", function () {
+      const journeySection = document.getElementById("our-journey");
+      journeySection.classList.add("visible"); // ✅ Make section visible
+      journeySection.scrollIntoView({ behavior: "smooth" });
+    });
+
+    const scrollToTopBtn = document.getElementById('scroll-to-top1');
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    if (window.innerWidth <= 767) {
+      const mobileFooter = document.querySelector('.mobile-social-footer');
+      if (mobileFooter) {
+        mobileFooter.style.display = 'block';
+        mobileFooter.style.opacity = '1';
+        mobileFooter.style.visibility = 'visible';
+      }
+    }
+
+    window.addEventListener('resize', function () {
+      const mobileFooter = document.querySelector('.mobile-social-footer');
       if (window.innerWidth <= 767) {
-        const mobileFooter = document.querySelector('.mobile-social-footer');
         if (mobileFooter) {
           mobileFooter.style.display = 'block';
           mobileFooter.style.opacity = '1';
           mobileFooter.style.visibility = 'visible';
         }
-      }
-
-      window.addEventListener('resize', function () {
-        const mobileFooter = document.querySelector('.mobile-social-footer');
-        if (window.innerWidth <= 767) {
-          if (mobileFooter) {
-            mobileFooter.style.display = 'block';
-            mobileFooter.style.opacity = '1';
-            mobileFooter.style.visibility = 'visible';
-          }
-          document.querySelector('.social-links-container').style.display = 'none';
-        } else {
-          if (mobileFooter) {
-            mobileFooter.style.display = 'none';
-          }
-          document.querySelector('.social-links-container').style.display = 'block';
+        document.querySelector('.social-links-container').style.display = 'none';
+      } else {
+        if (mobileFooter) {
+          mobileFooter.style.display = 'none';
         }
-      });
-    }
-  </script>
+        document.querySelector('.social-links-container').style.display = 'block';
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
